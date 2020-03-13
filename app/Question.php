@@ -16,6 +16,6 @@ class Question extends Model
 
     public function answer()
     {
-        return $this->belongsTo(Answer::class);
+        return $this->hasOne(Answer::class);
     }
 }

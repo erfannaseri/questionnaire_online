@@ -5,28 +5,61 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div align="center" class="card-header">ایجاد سوالات جدید</div>
+                    <div align="center" class="card-header">{{$questionnaire->title}} سوالت مربوط به</div>
 
                     <div class="card-body">
-                        <form action="{{route('questions.store')}}" method="post">
+                        <form action="{{route('questions.store',$questionnaire->title)}}" method="post">
                             @csrf
                             <div align="right" class="form-group">
-                                <label  for="title"> : عنوان</label>
-                                <input type="text" id="title" name="title" class="form-control @error('title') is-invalid @enderror">
+                                <label  for="title"> : سوال</label>
+                                <input type="text" id="title" name="question[question]" class="form-control @error('question.question') is-invalid @enderror">
                                 <br>
-                                @error('title')
+                                @error('question.question')
                                 <small class="text-danger">{{$message}}</small>
                                 @enderror
                             </div>
                             <div align="right" class="form-group">
-                                <label  for="purpose"> : کاربرد</label>
-                                <input type="text" id="purpose" name="purpose" class="form-control @error('purpose') is-invalid @enderror">
-                                <br>
-                                @error('purpose')
-                                <small class="text-danger">{{$message}}</small>
-                                @enderror
+                                <fieldset>
+                                    <legend>انتخاب ها</legend>
+                                    <div>
+                                        <div class="form-group">
+                                            <label for="answer1">گزینه 1</label>
+                                            <input type="text" name="answers[][answer]" id="answer1" class="form-control" >
+                                            @error('answers.0.answer')
+                                            <small class="text-danger">{{$message}}</small>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="form-group">
+                                            <label for="answer1">گزینه 2</label>
+                                            <input type="text" name="answers[][answer]" id="answer1" class="form-control" >
+                                            @error('answers.1.answer')
+                                            <small class="text-danger">{{$message}}</small>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="form-group">
+                                            <label for="answer1">گزینه 3</label>
+                                            <input type="text" name="answers[][answer]" id="answer1" class="form-control" >
+                                            @error('answers.2.answer')
+                                            <small class="text-danger">{{$message}}</small>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="form-group">
+                                            <label for="answer1">گزینه 4</label>
+                                            <input type="text" name="answers[][answer]" id="answer1" class="form-control" >
+                                            @error('answers.3.answer')
+                                            <small class="text-danger">{{$message}}</small>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                </fieldset>
                             </div>
-                            <input class="btn btn-block btn-lg btn-secondary btn-outline-success" type="submit" value="ثبت پرسشنامه ">
+                            <input class="btn btn-block btn-lg btn-secondary btn-outline-success" type="submit" value="اضافه کردن سوال ">
                         </form>
                     </div>
                 </div>

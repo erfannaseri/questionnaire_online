@@ -11,4 +11,10 @@ class QuestionController extends Controller
     {
         return view('back.question.create',compact('questionnaire'));
     }
+
+    public function store(Request $request,Questionnaire $questionnaire)
+    {
+        return $questionnaire->user->name;
+    }
 }
+

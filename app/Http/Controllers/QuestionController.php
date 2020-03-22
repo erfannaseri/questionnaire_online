@@ -24,7 +24,7 @@ class QuestionController extends Controller
     $question->answers()->createMany($request['answers']);
 
 
-        return redirect('/home');
+        return redirect(route('questionnaire.show',$questionnaire->title));
     }
 }
 

@@ -38,9 +38,11 @@ class QuestionnaireController extends Controller
         /**
          * eager loading with relationship
          */
-       //$questionnaire->load('questions.answers');
 
-        //dd($questionnaire);
+
+       $questionnaire->load('questions.answers');
+       //چون با جدولquestion ارتباط دارد و جدول question نیز با answers ارتبتاط دارد//
+
         return view('back.questionnaire.show',compact('questionnaire'));
     }
 }

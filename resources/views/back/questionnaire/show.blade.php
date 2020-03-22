@@ -8,11 +8,11 @@
 
                         <div class="card border-success ">
 
-                            <div class="card-header" >جزییات پرسشنامه  </div>
+                            <div class="card-header" >سوالات پرسشنامه  </div>
                             <div align="right" class="card-body">
-
-                                <h4 class="card-title">عنوان : {{$questionnaire->title}}</h4>
-
+                                <h3 align="center" class="card-title"> {{$questionnaire->title}}</h3>
+                                <a href="{{route('questions.create',$questionnaire->title)}}"
+                                   class="btn btn-outline-secondary">سوال جدید</a>
                             </div>
 
                             @foreach($questionnaire->questions()->get() as $question)
@@ -41,11 +41,9 @@
                                 <form action="#" class="post">
                                     {{csrf_field()}}
                                     @method('DELETE')
-                                    <button  type="submit" onclick="return confirm('آیا برای حذف این مقاله مطمئن هستید؟؟')" class="btn btn-outline-danger btn-dark btn-block btn-lg">حذف </button>
+                                    <button  type="submit" onclick="return confirm('آیا برای حذف این مقاله مطمئن هستید؟؟')" class="btn btn-outline-danger btn-dark  btn-lg">حذف </button>
                                 </form>
-                                <hr>
-                                <a class="btn btn-outline-primary btn-light btn-block btn-lg" href="{{url('/home')}}">برگشت</a>
-
+                            <a href="{{url('/home')}}" class="btn btn-secondary">برگشت</a>
                             </div>
 
             </div>

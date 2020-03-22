@@ -13,6 +13,8 @@
                                 <h3 align="center" class="card-title"> {{$questionnaire->title}}</h3>
                                 <a href="{{route('questions.create',$questionnaire->title)}}"
                                    class="btn btn-outline-secondary">سوال جدید</a>
+                                <a href="/surveys/{{$questionnaire->id}}-{{Str::slug($questionnaire->title)}}"
+                                   class="btn btn-outline-secondary">نظرسنجی</a>
                             </div>
 
                             @foreach($questionnaire->questions()->get() as $question)

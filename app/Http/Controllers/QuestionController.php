@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Answer;
+use App\Http\Requests\CreateQuestionAndAnswersRequest;
+use App\Http\Requests\CreateQuestionnaireRequest;
+use App\Question;
 use App\Questionnaire;
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class QuestionController extends Controller
 {
@@ -12,9 +16,15 @@ class QuestionController extends Controller
         return view('back.question.create',compact('questionnaire'));
     }
 
-    public function store(Request $request,Questionnaire $questionnaire)
+    public function store(CreateQuestionAndAnswersRequest $request,Questionnaire $questionnaire)
     {
-        return $questionnaire->user->name;
+//چون ووردی به صورت ارایه می باشد پس بهتر است از روش زیر استفاده شود چون با روش اولیه ایجاد داده پیچیده میشود//
+
+    $question=$questionnaire->questions()->create($request['question']);
+    $question->answers()->createMany($request['answers']);
+
+
+        return redirect('/home');
     }
 }
 

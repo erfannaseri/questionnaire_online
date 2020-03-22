@@ -35,6 +35,12 @@ class QuestionnaireController extends Controller
 
     public function show(Questionnaire $questionnaire)
     {
+        /**
+         * eager loading with relationship
+         */
+       //$questionnaire->load('questions.answers');
+
+        //dd($questionnaire);
         return view('back.questionnaire.show',compact('questionnaire'));
     }
 }

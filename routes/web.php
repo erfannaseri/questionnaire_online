@@ -16,6 +16,9 @@ Route::post('questionnaires','QuestionnaireController@store')->name('questionnai
 Route::get('/{user}/questionnaires','QuestionnaireController@index')->name('questionnaire.index');
 Route::get('questionnaires/{questionnaire}','QuestionnaireController@show')->name('questionnaire.show');
 
-
-Route::get('questionnaire/{questionnaire}/question/create','QuestionController@create')
-    ->name('question.create')->middleware('auth');
+Route::group(['middleware' => 'auth','prefix'=>'questionnaire'],function (){
+    Route::get('/{questionnaire}/questions/create','QuestionController@create')
+        ->name('questions.create');
+    Route::post('/{questionnaire}/questions','QuestionController@store')
+        ->name('questions.store');
+});

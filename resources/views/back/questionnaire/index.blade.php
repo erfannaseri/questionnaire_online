@@ -10,6 +10,7 @@
                     <div class="card-body">
                         <table class="table table-dark table-striped">
                             <thead>
+                            @forelse($questionnaires as $questionnaire)
                             <tr>
                                 <th>عنوان</th>
                                 <th>کاربرد</th>
@@ -19,16 +20,17 @@
                             </tr>
                             </thead>
                             <tbody>
-                            @forelse($questionnaires as $questionnaire)
+
                             <tr>
                                 <td>{{$questionnaire->title}}</td>
                                 <td>{{$questionnaire->purpose}}</td>
-                                <td>{{$questionnaire->user->name}}</td>
+                    Q            <td>{{$questionnaire->user->name}}</td>
                                 <td><a href="{{route('questionnaire.show',$questionnaire->title)}}" class="btn btn-success btn-outline-primary">جزییات</a></td>
-                                <td><a class="btn btn-info btn-outline-primary" href="{{route('question.create',$questionnaire->title)}}">طراحی سوالات</a></td>
+                                <td><a class="btn btn-info btn-outline-primary" href="{{route('questions.create',$questionnaire->title)}}">طراحی سوالات</a></td>
                             </tr>
                             @empty
-                                <p class="alert alert-info">هیچ پرسشنامه ای ثبت نشده است</p>
+                                <p align="center" class="alert alert-info">هیچ پرسشنامه ای ثبت نشده است</p>
+                                <a class="btn btn-outline-primary btn-secondary btn-lg btn-block" href="{{url('/home')}}">برگشت</a>
                             @endforelse
                             </tbody>
                         </table>

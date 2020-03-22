@@ -10,8 +10,9 @@
                     <div class="card-body">
                         <table class="table table-dark table-striped">
                             <thead>
-                            @forelse($questionnaires as $questionnaire)
                             <tr>
+
+
                                 <th>عنوان</th>
                                 <th>کاربرد</th>
                                 <th>طراح</th>
@@ -22,9 +23,10 @@
                             <tbody>
 
                             <tr>
+                                @forelse($questionnaires as $questionnaire)
                                 <td>{{$questionnaire->title}}</td>
                                 <td>{{$questionnaire->purpose}}</td>
-                    Q            <td>{{$questionnaire->user->name}}</td>
+                               <td>{{$questionnaire->user->name}}</td>
                                 <td><a href="{{route('questionnaire.show',$questionnaire->title)}}" class="btn btn-success btn-outline-primary">جزییات</a></td>
                                 <td><a class="btn btn-info btn-outline-primary" href="{{route('questions.create',$questionnaire->title)}}">طراحی سوالات</a></td>
                             </tr>

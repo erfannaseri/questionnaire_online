@@ -25,7 +25,8 @@
                                     <label for="answer{{$answer->id}}">
                                         <li class="list-group-item">
                                             {{$answer->answer}}
-                                            <input type="radio" name="response[{{$key}}][answer_id]" value="{{ $answer->id }}" id="answer{{$answer->id}}" class="ml-3">
+                                            <input type="radio" name="response[{{$key}}][answer_id]" {{old('response.'.$key.'.answer_id') == $answer->id ? 'checked' : '' }}
+                                            id="answer{{$answer->id}}" class="ml-3" value="{{$answer->id}}">
                                             <input type="hidden" name="response[{{$key}}][question_id]" value="{{$question->id}}">
                                         </li>
                                     </label>

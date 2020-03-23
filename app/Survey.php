@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Servey extends Model
+class Survey extends Model
 {
     protected $guarded =[];
 
@@ -15,6 +15,6 @@ class Servey extends Model
     public function questionnaire()
     {
         return $this->belongsTo(Questionnaire::class);
-
     }
+
 }

@@ -21,7 +21,7 @@ class Questionnaire extends Model
 
     public function serveys()
     {
-        return $this->hasMany(Servey::class);
+        return $this->hasMany(Survey::class);
     }
 
     public function getRouteKeyName()

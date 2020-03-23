@@ -14,7 +14,7 @@
 
 
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
-<!--    <link href="https://fonts.googlepis.com/css?family=Nunito:400,700" rel="stylesheet">-->>
+    <link href="{{ asset('css/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
 </head>
 <body>
     <div id="app">

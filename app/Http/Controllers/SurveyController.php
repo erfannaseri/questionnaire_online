@@ -13,4 +13,14 @@ class SurveyController extends Controller
         $questionnaire->load('questions.answers');
         return view('back.surveys.show',compact('questionnaire'));
     }
+
+    public function store($id,$slug)
+    {
+        $data=request()->validate([
+            'response.*.answer_id'=>'required',
+            'response.*.question_id'=>'required'
+        ]);
+
+        dd($data);
+    }
 }

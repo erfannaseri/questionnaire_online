@@ -23,4 +23,4 @@ Route::group(['middleware'=>'auth','prefix'=>'questionnaire'],function (){
         ->name('questions.store');
 });
 
-Route::get('surveys/{id}-{slug}','SurveyController@show')->middleware('auth');
+Route::get('surveys/{id}-{slug}','SurveyController@show')->middleware('auth');//Route::post('surveys/{id}-{slug}','SurveyController@store')->middleware('auth');

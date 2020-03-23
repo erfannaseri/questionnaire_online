@@ -9,6 +9,8 @@ class SurveyController extends Controller
 {
     public function show($id,$slug)
     {
-        dd($slug);
+        $questionnaire=Questionnaire::find($id);
+        $questionnaire->load('questions.answers');
+        return view('back.surveys.show',compact('questionnaire'));
     }
 }

@@ -31,7 +31,7 @@
                                         @foreach($question->answers as $key=>$answer)
                                             <li dir="rtl" class="list-group-item">
                                                 <div>{{ $key +1 }} - {{ $answer->answer }}</div>
-                                                <div>{{$answer->responses()->count()}}</div>
+                                                <div>{{' %'.round(($answer->responses()->count()/$question->responses()->count()),2) *100 }}</div>
                                             </li>
                                         @endforeach
                                     </ul>

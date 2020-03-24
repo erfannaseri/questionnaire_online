@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CreateSurveyRequset;
 use App\Questionnaire;
 use Illuminate\Http\Request;
 
@@ -14,13 +15,15 @@ class SurveyController extends Controller
         return view('back.surveys.show',compact('questionnaire'));
     }
 
-    public function store($id,$slug)
+    public function store(CreateSurveyRequset $requset,$id,$slug)
     {
-        $data=request()->validate([
-            'response.*.answer_id'=>'required',
-            'response.*.question_id'=>'required'
-        ]);
+        return $requset->all();
+        $questionnaire=Questionnaire::find($id);
 
-        dd($data);
+//        $survey=$questionnaire->surveys()->create($data['survey']);
+//
+//        $survey->response()->createMany($data['response']);
+
+       return $data;
     }
 }

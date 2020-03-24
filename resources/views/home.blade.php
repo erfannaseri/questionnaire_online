@@ -17,12 +17,25 @@
                         <a href="{{route('questionnaire.index',auth()->user()->name)}}" class="btn btn-outline-dark">مشاهده پرسشنامه این کاربر</a>
                 </div>
             </div>
-            <div class="card mt-4">
+            <div  align="center" class="card mt-4">
                 <div class="card-header">پرسشنامه های من</div>
                 <ul class="list-group">
                     @forelse ($questionnaires as $questionnaire )
                     <li class="list-group-item">
-                        <a href="{{route('questionnaire.show',$questionnaire->title)}}">{{ $questionnaire->title }}</a>
+                        <a class="btn btn-outline-secondary" href="{{route('questionnaire.show',$questionnaire->title)}}">{{ $questionnaire->title }}</a>
+
+                        <div align="center" class="mt-1">
+                            <h6 >لینک دسترسی مستقیم</h6>
+                           <a class="btn btn-outline-primary" href="{{$questionnaire->publicPath()}}">
+
+                              {{ $questionnaire->publicPath() }}
+                               {{--
+                                @php
+                                echo url('surveys/'.$questionnaire->id.'-'.Str::slug($questionnaire->title))
+                                @endphp
+                               --}}
+                            </a>
+                        </div>
                     </li>
                     @empty
                         <h4 align="center">کاربر گرامی شما هیچ پرسشنامه ای ثبت نکردیه اید</h4>

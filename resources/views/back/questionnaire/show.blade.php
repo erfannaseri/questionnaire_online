@@ -29,9 +29,11 @@
                                 <div  align="right" class="card-body">
                                     <ul class="list-group list-group-flush" >
                                         @foreach($question->answers as $key=>$answer)
-                                            <li dir="rtl" class="list-group-item">
+                                            <li dir="rtl" class="list-group-item d-flex justify-content-between">
                                                 <div>{{ $key +1 }} - {{ $answer->answer }}</div>
-                                                <div>{{' %'.round(($answer->responses()->count()/$question->responses()->count()),2) *100 }}</div>
+                                                @if ($question->responses()->count())
+                                                    <div>{{' %'.round(($answer->responses()->count()/$question->responses()->count()),2) *100 }}</div>
+                                                @endif
                                             </li>
                                         @endforeach
                                     </ul>

@@ -16,11 +16,13 @@ Route::post('questionnaires','QuestionnaireController@store')->name('questionnai
 Route::get('/{user}/questionnaires','QuestionnaireController@index')->name('questionnaire.index');
 Route::get('questionnaires/{questionnaire}','QuestionnaireController@show')->name('questionnaire.show')->middleware('auth');
 
-Route::group(['middleware'=>'auth','prefix'=>'questionnaire'],function (){
+Route::group(['middleware'=>'auth','prefix'=>'questionnaires'],function (){
     Route::get('/{questionnaire}/questions/create','QuestionController@create')
         ->name('questions.create');
     Route::post('/{questionnaire}/questions','QuestionController@store')
         ->name('questions.store');
+    Route::delete('/{questionnaire}/questions/{question}','QuestionController@destroy')
+        ->name('questions.delete');
 });
 
 Route::get('surveys/{id}-{slug}','SurveyController@show')->middleware('auth');

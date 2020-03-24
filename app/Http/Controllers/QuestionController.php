@@ -26,5 +26,14 @@ class QuestionController extends Controller
 
         return redirect(route('questionnaire.show',$questionnaire->title));
     }
+
+    public function destroy(Questionnaire $questionnaire,Question $question)
+    {
+        $question->answers()->delete();
+
+        $question->delete();
+
+        return back()->with('deleteQuestionSuccess','عملیات حذف با موفقیت انجام شد');
+    }
 }
 

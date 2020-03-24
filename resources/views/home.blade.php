@@ -13,10 +13,21 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
                         <a href="{{route('questionnaire.create')}}" class="btn btn-outline-dark">ایجاد بسته سوالالت جدید +</a>
                         <a href="{{route('questionnaire.index',auth()->user()->name)}}" class="btn btn-outline-dark">مشاهده پرسشنامه این کاربر</a>
                 </div>
+            </div>
+            <div class="card mt-4">
+                <div class="card-header">پرسشنامه های من</div>
+                <ul class="list-group">
+                    @forelse ($questionnaires as $questionnaire )
+                    <li class="list-group-item">
+                        <a href="{{route('questionnaire.show',$questionnaire->title)}}">{{ $questionnaire->title }}</a>
+                    </li>
+                    @empty
+                        <h4 align="center">کاربر گرامی شما هیچ پرسشنامه ای ثبت نکردیه اید</h4>
+                    @endforelse
+                </ul>
             </div>
         </div>
     </div>

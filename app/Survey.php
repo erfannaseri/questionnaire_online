@@ -9,7 +9,7 @@ class Survey extends Model
     protected $guarded =[];
 
     protected $fillable=[
-        ''
+        'questionnaire_id','email','name'
     ];
 
     public function questionnaire()

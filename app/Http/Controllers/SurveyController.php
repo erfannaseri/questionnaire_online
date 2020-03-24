@@ -20,10 +20,10 @@ class SurveyController extends Controller
 
         $questionnaire=Questionnaire::find($id);
 
-//        $survey=$questionnaire->surveys()->create($data['survey']);
-//
-//        $survey->response()->createMany($data['response']);
+        $survey=$questionnaire->surveys()->create($requset['survey']);
 
-       return $data;
+        $survey->responses()->createMany($requset['response']);
+
+       return 'بسیار سپاس گذاریم';
     }
 }

@@ -29,7 +29,10 @@
                                 <div  align="right" class="card-body">
                                     <ul class="list-group list-group-flush" >
                                         @foreach($question->answers as $key=>$answer)
-                                            <li dir="rtl" class="list-group-item">{{ $key +1 }} - {{ $answer->answer }}</li>
+                                            <li dir="rtl" class="list-group-item">
+                                                <div>{{ $key +1 }} - {{ $answer->answer }}</div>
+
+                                            </li>
                                         @endforeach
                                     </ul>
                                 </div>

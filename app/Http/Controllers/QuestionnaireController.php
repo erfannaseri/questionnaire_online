@@ -40,7 +40,7 @@ class QuestionnaireController extends Controller
          */
 
 
-       $questionnaire->load('questions.answers');
+       $questionnaire->load('questions.answers.responses');
        //چون با جدولquestion ارتباط دارد و جدول question نیز با answers ارتبتاط دارد//
 
         return view('back.questionnaire.show',compact('questionnaire'));

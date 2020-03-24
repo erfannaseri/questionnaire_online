@@ -17,7 +17,7 @@ class SurveyController extends Controller
 
     public function store(CreateSurveyRequset $requset,$id,$slug)
     {
-        return $requset->all();
+
         $questionnaire=Questionnaire::find($id);
 
 //        $survey=$questionnaire->surveys()->create($data['survey']);

@@ -17,7 +17,7 @@ class CreateQuestionnairesTable extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id')->index();
             $table->string('title');
-            $table->string('purpose');
+            $table->string('grade');
             $table->string('date-exam');
             $table->string('start-exam');
             $table->string('end-exam');

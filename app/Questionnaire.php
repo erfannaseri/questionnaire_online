@@ -38,4 +38,17 @@ class Questionnaire extends Model
     {
         return 'title';
     }
+
+    public function setDateExamAttribute($value)
+    {
+        return $this->attributes['date-exam']=jDate($value);
+    }
+    public function setStartExamAttribute($value)
+    {
+        return $this->attributes['start-exam']=jDate($value);
+    }
+    public function setEndExamAttribute($value)
+    {
+        return $this->attributes['end-exam']=jDate($value);
+    }
 }

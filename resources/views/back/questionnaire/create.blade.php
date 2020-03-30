@@ -11,7 +11,7 @@
                         <form action="{{route('questionnaire.store')}}" method="post">
                             @csrf
                             <div align="right" class="form-group">
-                                <label  for="title"> : عنوان</label>
+                                <label  for="title">:  نام امتحان</label>
                                 <input type="text" id="title" name="title" class="form-control @error('title') is-invalid @enderror">
                                <br>
                                 @error('title')
@@ -19,10 +19,18 @@
                                 @enderror
                             </div>
                             <div align="right" class="form-group">
-                                <label  for="purpose"> : کاربرد</label>
-                                <input type="text" id="purpose" name="purpose" class="form-control @error('purpose') is-invalid @enderror">
+                                <label  for="grade"> : پایه تحصیلی</label>
+                                <input type="text" id="purpose" name="grade" class="form-control @error('grade') is-invalid @enderror">
                                 <br>
-                                @error('purpose')
+                                @error('grade')
+                                <small class="text-danger">{{$message}}</small>
+                                @enderror
+                            </div>
+                            <div align="right" class="form-group">
+                                <label  for="grade"> : پایه تحصیلی</label>
+                                <input type="date" id="purpose" name="grade" class="form-control @error('grade') is-invalid @enderror">
+                                <br>
+                                @error('grade')
                                 <small class="text-danger">{{$message}}</small>
                                 @enderror
                             </div>

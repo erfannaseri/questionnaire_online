@@ -36,7 +36,7 @@
                         </li>
 
                     @else
-                        <li><a href="contact.blade.php"><span style="color: black;font-size: 25px">ورود </span> </a></li>
+                        <li><a href="{{route('login')}}"><span style="color: black;font-size: 25px">ورود </span> </a></li>
                     @endauth
 
                 </ul>

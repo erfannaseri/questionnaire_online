@@ -28,11 +28,8 @@
 @include('front.Units.mobile')
     <!-- NAVBAR -->
 @include('front.Units.navbar')
-
-    <!-- HOME -->
-
-    <!-- ABOUT US -->
-   @yield('main')
+    <!-- main -->
+ @yield('main')
     <!-- SERVICES -->
   @include('front.Units.services')
     <!-- PORTFOLIO -->

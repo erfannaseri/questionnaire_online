@@ -2,12 +2,12 @@
 
 
 
-
+Auth::routes();
 Route::get('/', function () {
-    return view('front.index');
+    return view('front.home');
 });
 
-Auth::routes();
+Route::get('/questionnaire/show','front\QuestionnaireController@index')->name('questionnaire.all');
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('questionnaire/create','QuestionnaireController@create')->name('questionnaire.create')->middleware('auth');

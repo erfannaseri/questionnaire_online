@@ -61,7 +61,7 @@
                 <div class="mx-auto w-75">
                     <p style="color: black;font-size: 25px"> آزمون خود را ثبت کنید ، در ازمون ها شرکت کنید</p>
                 </div>
-                <p class="mt-5"><a href="contact.blade.php" class="btn btn-outline-white btn-md ">لیست امتحانات</a></p>
+                <p class="mt-5"><a href="{{ route('questionnaire.all') }}" class="btn btn-outline-white btn-md ">لیست امتحانات</a></p>
             </div>
         </div>
     </div>

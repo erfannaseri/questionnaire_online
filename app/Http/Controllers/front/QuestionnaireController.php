@@ -11,7 +11,7 @@ class QuestionnaireController extends Controller
 
     public function index()
     {
-        $chart=Questionnaire::all();
-        return view('front.chart',compact('chart'));
+        $charts=Questionnaire::all();
+        return view('front.chart',compact('charts'));
     }
 }

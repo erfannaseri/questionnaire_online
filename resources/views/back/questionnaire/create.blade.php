@@ -34,6 +34,24 @@
                                 <small class="text-danger">{{$message}}</small>
                                 @enderror
                             </div>
+                            <div align="right" class="form-group">
+                                    <label for="start-exam">ساعت برگزاری</label>
+                                    <select  class="form-control" name="start-exam" id="start-exam" >
+                                        <option value="8:00" selected >8:00 </option>
+                                        <option value="10:30" >10:30 </option>
+                                        <option value="14:00" >14:00 </option>
+                                        <option value="16:30" >16:30 </option>
+                                    </select>
+                            </div>
+                            <div align="right" class="form-group">
+                                <label  for="time-exam"> : زمان لازم</label>
+                                <input type="text" id=time-exam" name="time-exam" class="form-control @error('time-exam') is-invalid @enderror">
+                                <small >زمان را بر حسب دقیقه و فقط عددی وارد نمایید</small>
+                                <br>
+                                @error('time-exam')
+                                <small class="text-danger">{{$message}}</small>
+                                @enderror
+                            </div>
                             <input class="btn btn-block btn-lg btn-secondary btn-outline-success" type="submit" value="ثبت پرسشنامه ">
                         </form>
                     </div>

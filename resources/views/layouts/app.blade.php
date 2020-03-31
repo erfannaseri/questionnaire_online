@@ -9,12 +9,11 @@
 
     <title>{{ config('app.name', 'آزمون آنلاین') }}</title>
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-
-
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/persian-datepicker.css') }}" rel="stylesheet">
     <link href="{{ asset('css/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
+
+
 </head>
 <body>
     <div id="app">
@@ -67,5 +66,23 @@
             @yield('content')
         </main>
     </div>
+
+<script src="{{ asset('js/jquery.min.js') }}"></script>
+    <script  src="{{ asset('js/persian-date.js') }}"></script>
+   <script src="{{ asset('js/persian-datepicker.js') }}"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $("#date-exam").persianDatepicker({
+                altField: '#date-exam',
+                altFormat: "YYYY/MM/DD",
+                observer: true,
+                format: 'YYYY/MM/DD',
+                initialValue: false,
+                initialValueType: 'english',
+                autoClose: true,
+                maxDate: 'today',
+            });
+        });
+        </script>
 </body>
 </html>

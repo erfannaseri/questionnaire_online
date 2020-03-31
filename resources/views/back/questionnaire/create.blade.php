@@ -27,10 +27,10 @@
                                 @enderror
                             </div>
                             <div align="right" class="form-group">
-                                <label  for="grade"> : پایه تحصیلی</label>
-                                <input type="date" id="purpose" name="grade" class="form-control @error('grade') is-invalid @enderror">
+                                <label  for="date-exam"> : پایه تحصیلی</label>
+                                <input type="text" id="date-exam" name="date-exam" class="form-control @error('date-exam') is-invalid @enderror">
                                 <br>
-                                @error('grade')
+                                @error('date-exam')
                                 <small class="text-danger">{{$message}}</small>
                                 @enderror
                             </div>

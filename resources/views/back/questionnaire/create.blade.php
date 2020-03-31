@@ -20,7 +20,7 @@
                             </div>
                             <div align="right" class="form-group">
                                 <label  for="grade"> : پایه تحصیلی</label>
-                                <input type="text" id="purpose" name="grade" class="form-control @error('grade') is-invalid @enderror">
+                                <input type="text" id="grade" name="grade" class="form-control @error('grade') is-invalid @enderror">
                                 <br>
                                 @error('grade')
                                 <small class="text-danger">{{$message}}</small>

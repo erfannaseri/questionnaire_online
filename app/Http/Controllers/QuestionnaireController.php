@@ -20,7 +20,7 @@ class QuestionnaireController extends Controller
         return view('back.questionnaire.create');
     }
 
-    public function store(Request $request)
+    public function store(CreateQuestionnaireRequest $request)
     {
 
 

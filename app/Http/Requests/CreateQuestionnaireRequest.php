@@ -24,8 +24,10 @@ class CreateQuestionnaireRequest extends FormRequest
     public function rules()
     {
         return [
-            'title'=>'required|unique:questionnaires',
-            'purpose'=>'required'
+            'title'=>'bail|required|unique:questionnaires',
+            'grade'=>'bail|required',
+            'date-exam'=>'required',
+            'time-exam'=>'required|integer'
         ];
     }
 
@@ -33,7 +35,10 @@ class CreateQuestionnaireRequest extends FormRequest
     {
         return [
             'title.required'=>'عنوان این این پرسشنامه را وارد نمایید',
-            'purpose.required'=>'کاربرد این پرسشنامه را بنویسید',
+            'grade.required'=>'کاربرد این پرسشنامه را بنویسید',
+            'date-exam.required'=>'تاریخ برگزاری را انتحاب نکردی',
+            'time-exam.required'=>'زمان لازم برای این ازمون را وارد نماییید',
+            'time-exam.integer'=>'زمان لازم فقط عددی باشد مثال 100',
         ];
     }
 }

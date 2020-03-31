@@ -11,7 +11,7 @@
     <link rel="stylesheet" href={{ asset('fonts/line-icons/style.css') }}>
     <!-- MAIN CSS -->
     <link rel="stylesheet" href={{ asset('css/front-css.css') }}>
-    <link rel="stylesheet" href={{ asset('css/bootstrap.min.css') }}>
+
   </head>
   <body>
 

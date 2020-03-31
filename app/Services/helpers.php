@@ -28,3 +28,4 @@ function fixNumbers(string $string): string
 
     return str_replace($arabic, $num, $convertedPersianNums);
 }
+

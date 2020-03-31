@@ -78,9 +78,10 @@
                 observer: true,
                 format: 'YYYY/MM/DD',
                 initialValue: false,
-                initialValueType: 'english',
+                initialValueType: 'persian',
                 autoClose: true,
                 maxDate: 'today',
+                inputDelay: 800,
             });
         });
         </script>

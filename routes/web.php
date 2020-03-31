@@ -1,9 +1,11 @@
 <?php
 
 
+use Illuminate\Support\Carbon;
 
 Auth::routes();
 Route::get('/', function () {
+
     return view('front.home');
 });
 

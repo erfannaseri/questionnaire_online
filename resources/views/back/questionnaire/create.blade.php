@@ -27,7 +27,7 @@
                                 @enderror
                             </div>
                             <div align="right" class="form-group">
-                                <label  for="date-exam"> : پایه تحصیلی</label>
+                                <label  for="date-exam"> : تاریخ امتحان</label>
                                 <input type="text" id="date-exam" name="date-exam" class="form-control @error('date-exam') is-invalid @enderror">
                                 <br>
                                 @error('date-exam')

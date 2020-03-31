@@ -25,7 +25,7 @@
                         <li class="has-children " style="margin-left: 100px;color: black;font-size: 25px" >
                             <a href="#" style="color: black;font-size: 25px" >{{ Auth::user()->name }}</a>
                             <ul class="dropdown  ">
-                                <li><a href="#" class="btn btn-secondary btn-block btn-lg" >پنل کاربری</a></li>
+                                <li><a href="{{ route('login') }}" class="btn btn-secondary btn-block btn-lg" >پنل کاربری</a></li>
                                 <li>
                                     <form action="{{ route('logout') }}" method="post">
                                         @csrf

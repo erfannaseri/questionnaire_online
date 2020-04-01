@@ -23,19 +23,23 @@ class QuestionnaireController extends Controller
     public function store(CreateQuestionnaireRequest $request)
     {
 
+        $date=$this->getShamsi($request->input('date-exam'),$request->input('start-exam'));
 
-//        $questionnaire=Questionnaire::create([
-//            'title'=>$request->title,
-//            'purpose'=>$request->purpose,
-//            'user_id'=>auth()->user()->id,
-//        ]);
 
-        $date=$this->getDate($request->input('date-exam'));
-        $gregorian=explode('-',implode(Verta::getGregorian($date[0],$date[1],$date[2])));
-        return $date;
-//        if ($questionnaire) {
-//            return redirect(route('questionnaire.index',auth()->user()->name));
-//        }
+        $questionnaire=Questionnaire::create([
+            'title'=>$request->input('title'),
+            'grade'=>$request->input('grade'),
+            'user_id'=>auth()->user()->id,
+            'date-exam'=>$date,
+            'start-exam'=>$request->input('start-exam'),
+            'end-exam'=>$request->input('time-exam'),
+        ]);
+
+
+
+        if ($questionnaire) {
+            return redirect(route('questionnaire.index',auth()->user()->name));
+        }
     }
 
     public function show(Questionnaire $questionnaire)
@@ -51,14 +55,18 @@ class QuestionnaireController extends Controller
         return view('back.questionnaire.show',compact('questionnaire'));
     }
 
-    public function getDate($dateJalai)
+    public function getShamsi($dateJalai,$startExam)
     {
         $persian = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'];
         //$arabic = ['٩', '٨', '٧', '٦', '٥', '٤', '٣', '٢', '١','٠'];
         $num = range(0, 9);
         $convert = str_replace($persian, $num, $dateJalai);
-        $newDate = explode('/', $convert);
+        $date = explode('/', $convert);
+        $gerGorian=Verta::getGregorian($date[0],$date[1],$date[2]);
+        $newGre=implode($gerGorian);
 
-        return $newDate;
+        return date('Y-m-d',strtotime($newGre)).' '.$startExam.':00';
 }
+
+
 }

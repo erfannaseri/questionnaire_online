@@ -92,7 +92,7 @@ class QuestionnaireController extends Controller
                 $originalEndExam='0'.(($endExam-60)+100);
                  return $time.' '.substr($originalEndExam,0,2).':'.substr($originalEndExam,2);
             }else{
-                return $time.' '.substr($endExam,0,2).':'.substr($endExam,2);
+                return $time.' '.'0'.substr($endExam,0,1).':'.substr($endExam,1);
             }
 
         } else {
@@ -102,7 +102,7 @@ class QuestionnaireController extends Controller
                 $originalEndExam='0'.(($eExam-60)+100);
                 return $time.' '.substr($originalEndExam,0,2).':'.substr($originalEndExam,2);
             }else{
-                return $time.' '.substr($eExam,0,2).':'.substr($eExam,2);
+                return $time.' '.'0'.substr($eExam,0,1).':'.substr($eExam,1);
             }
 
         }

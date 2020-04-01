@@ -23,16 +23,18 @@ class QuestionnaireController extends Controller
     public function store(CreateQuestionnaireRequest $request)
     {
 
-        $date=$this->getShamsi($request->input('date-exam'),$request->input('start-exam'));
+        $dateGregorian=$this->getShamsi($request->input('date-exam'),$request->input('start-exam'));
 
+
+        $timeEndExam=$this->getTimeExam($request->input('date-exam'),$request->input('start-exam'),$request->input('time-exam'));
 
         $questionnaire=Questionnaire::create([
             'title'=>$request->input('title'),
             'grade'=>$request->input('grade'),
             'user_id'=>auth()->user()->id,
-            'date-exam'=>$date,
+            'date-exam'=>$dateGregorian,
             'start-exam'=>$request->input('start-exam'),
-            'end-exam'=>$request->input('time-exam'),
+            'end-exam'=>$timeEndExam,
         ]);
 
 
@@ -66,7 +68,56 @@ class QuestionnaireController extends Controller
         $newGre=implode($gerGorian);
 
         return date('Y-m-d',strtotime($newGre)).' '.$startExam.':00';
-}
+    }
+
+    public function getTimeExam($dateJalai,$start,$end)
+    {
+        $persian = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'];
+        //$arabic = ['٩', '٨', '٧', '٦', '٥', '٤', '٣', '٢', '١','٠'];
+        $num = range(0, 9);
+        $convert = str_replace($persian, $num, $dateJalai);
+        $date = explode('/', $convert);
+        $gerGorian=Verta::getGregorian($date[0],$date[1],$date[2]);
+        $time= date('Y-m-d',strtotime(implode($gerGorian)));
+
+        if ($end >= 60)
+        {
+            $startExam=str_replace(':','',$start);
+
+            $minute =$end-60;
+            $endExam=($startExam+100)+$minute;
+
+
+            if (substr($endExam,1,1) > 5) {
+                $originalEndExam='0'.(($endExam-60)+100);
+                 return $time.' '.substr($originalEndExam,0,2).':'.substr($originalEndExam,2);
+            }else{
+                return $time.' '.substr($endExam,0,2).':'.substr($endExam,2);
+            }
+
+        } else {
+            $startExam=str_replace(':','',$start);
+            $eExam=$startExam+$end;
+            if (substr($eExam,1,1) > 5) {
+                $originalEndExam='0'.(($eExam-60)+100);
+                return $time.' '.substr($originalEndExam,0,2).':'.substr($originalEndExam,2);
+            }else{
+                return $time.' '.substr($eExam,0,2).':'.substr($eExam,2);
+            }
+
+        }
+
+
+//        $houreMinute=(round($end/60,4));
+//
+////        $houre=intval($houreMinute);
+////        $minute=ceil(($houreMinute-$houre)*60);
+//
+
+//        $nv= $v->addHour($houre);
+//
+//         return $nv->addMinute($minute);
+    }
 
 
 }

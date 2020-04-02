@@ -22,6 +22,7 @@
                                     <thead style="margin-left: 100px">
                                     <tr dir="rtl" align="center">
 
+                                        <th>ساعت برگزاری</th>
                                         <th>امتحان</th>
                                         <th>درس</th>
                                         <th>پایه تحصیلی</th>
@@ -31,9 +32,10 @@
                                     @forelse($charts as $chart)
                                     <tr dir="rtl" align="center">
 
-                                            <td>{{ jDate($chart->created_at) }}</td>
-                                            <td>{{$chart->title}}</td>
-                                            <td>{{$chart->purpose}}</td>
+                                        <td>{{ substr(Verta::instance($chart->dateExam),10) }}</td>
+                                        <td>{{ substr(Verta::instance($chart->dateExam),0,10) }}</td>
+                                            <td>{{$chart->grade}}</td>
+                                            <td>{{$chart->title }}</td>
                                     </tr>
                                     @empty
                                         <p align="center" class="alert alert-info">هیچ پرسشنامه ای ثبت نشده است</p>

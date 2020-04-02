@@ -24,7 +24,7 @@ class CreateQuestionnaireRequest extends FormRequest
     public function rules()
     {
         return [
-            'title'=>'bail|required|unique:questionnaires',
+            'title'=>'bail|required|',
             'grade'=>'bail|required',
             'date-exam'=>'required',
             'time-exam'=>'required|integer'

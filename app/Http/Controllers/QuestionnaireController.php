@@ -32,9 +32,9 @@ class QuestionnaireController extends Controller
             'title'=>$request->input('title'),
             'grade'=>$request->input('grade'),
             'user_id'=>auth()->user()->id,
-            'date-exam'=>$dateGregorian,
-            'start-exam'=>$request->input('start-exam'),
-            'end-exam'=>$timeEndExam,
+            'dateExam'=>$dateGregorian,
+            'startExam'=>$request->input('start-exam'),
+            'endExam'=>$timeEndExam,
         ]);
 
 
@@ -53,7 +53,7 @@ class QuestionnaireController extends Controller
 
        $questionnaire->load('questions.answers.responses');
        //چون با جدولquestion ارتباط دارد و جدول question نیز با answers ارتبتاط دارد//
-
+jDate(now());
         return view('back.questionnaire.show',compact('questionnaire'));
     }
 
@@ -90,9 +90,9 @@ class QuestionnaireController extends Controller
 
             if (substr($endExam,1,1) > 5) {
                 $originalEndExam='0'.(($endExam-60)+100);
-                 return $time.' '.substr($originalEndExam,0,2).':'.substr($originalEndExam,2);
+                 return $time.' '.substr($originalEndExam,0,2).':'.substr($originalEndExam,2).':00';
             }else{
-                return $time.' '.'0'.substr($endExam,0,1).':'.substr($endExam,1);
+                return $time.' '.'0'.substr($endExam,0,1).':'.substr($endExam,1).':00';
             }
 
         } else {
@@ -100,23 +100,14 @@ class QuestionnaireController extends Controller
             $eExam=$startExam+$end;
             if (substr($eExam,1,1) > 5) {
                 $originalEndExam='0'.(($eExam-60)+100);
-                return $time.' '.substr($originalEndExam,0,2).':'.substr($originalEndExam,2);
+                return $time.' '.substr($originalEndExam,0,2).':'.substr($originalEndExam,2).':00';
             }else{
-                return $time.' '.'0'.substr($eExam,0,1).':'.substr($eExam,1);
+                return $time.' '.'0'.substr($eExam,0,1).':'.substr($eExam,1).':00';
             }
 
         }
 
 
-//        $houreMinute=(round($end/60,4));
-//
-////        $houre=intval($houreMinute);
-////        $minute=ceil(($houreMinute-$houre)*60);
-//
-
-//        $nv= $v->addHour($houre);
-//
-//         return $nv->addMinute($minute);
     }
 
 

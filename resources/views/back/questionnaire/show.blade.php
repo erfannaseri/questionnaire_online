@@ -15,11 +15,11 @@
                             @endif
                             </div>
                             <div align="right" class="card-body">
-                                <h3 align="center" class="card-title"> {{$questionnaire->title}} :  {{$questionnaire->grade}}</h3>
-                                <a href="{{route('questions.create',$questionnaire->title)}}"
-                                   class="btn btn-outline-secondary">سوال جدید</a>
+                                <h3 align="center" class="card-title" style="font-family: vazir"> {{$questionnaire->title}} :  {{$questionnaire->grade}}</h3>
+                                <a  href="{{route('questions.create',$questionnaire->title)}}"
+                                   class="btn btn-outline-secondary"  >سوال جدید</a>
                                 <a href="/surveys/{{$questionnaire->id}}-{{Str::slug($questionnaire->title)}}"
-                                   class="btn btn-outline-secondary">نظرسنجی</a>
+                                   class="btn btn-outline-secondary " style="margin-right: 250px">نظرسنجی</a>
                             </div>
 
                             @foreach($questionnaire->questions()->get() as $question)

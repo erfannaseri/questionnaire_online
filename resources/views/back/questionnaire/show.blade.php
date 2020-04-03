@@ -16,10 +16,6 @@
                             </div>
                             <div align="right" class="card-body">
                                 <h3 align="center" class="card-title" style="font-family: vazir"> {{$questionnaire->title}} :  {{$questionnaire->grade}}</h3>
-                                <a  href="{{route('questions.create',$questionnaire->title)}}"
-                                   class="btn btn-outline-secondary"  >سوال جدید</a>
-                                <a href="/surveys/{{$questionnaire->id}}-{{Str::slug($questionnaire->title)}}"
-                                   class="btn btn-outline-secondary " style="margin-right: 250px">نظرسنجی</a>
                             </div>
 
                             @foreach($questionnaire->questions()->get() as $question)
@@ -39,17 +35,24 @@
                                     </ul>
                                 </div>
 
-                                <div class="card-footer">
-
-                                    <form action="{{url('questionnaires/'.$questionnaire->title.'/questions/'.$question->id)}}" method="post">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button  type="submit" onclick="return confirm('آیا برای حذف این مقاله مطمئن هستید؟؟')" class="btn btn-outline-danger btn-dark  btn-sm">حذف سوال</button>
-                                    </form>
-
-                                </div>
                                 <hr>
                             @endforeach
+                            <div align="right" class="card-body">
+
+                                <a  href="{{route('questions.create',$questionnaire->title)}}"
+                                    class="btn btn-outline-secondary"  >سوال جدید</a>
+                                <a href="/surveys/{{$questionnaire->id}}-{{Str::slug($questionnaire->title)}}"
+                                   class="btn btn-outline-secondary " style="margin-right: 250px">نظرسنجی</a>
+                            </div>
+                            <div class="card-footer">
+
+                                <form action="{{url('questionnaires/'.$questionnaire->title.'/questions/'.$question->id)}}" method="post">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button  type="submit" onclick="return confirm('آیا برای حذف این مقاله مطمئن هستید؟؟')" class="btn btn-outline-danger btn-dark  btn-sm">حذف سوال</button>
+                                </form>
+
+                            </div>
                                 <!--
                                 <h4 class="card-title">کاربرد : {{$questionnaire->purpose}}</h4>
                                 <hr>

@@ -34,5 +34,4 @@ Route::group(['middleware'=>'auth','prefix'=>'questionnaires'],function (){
 Route::get('surveys/{id}-{slug}','SurveyController@show')->middleware('auth');
 Route::post('surveys/{id}-{slug}','SurveyController@store')->middleware('auth');
 
-
 Route::view('test','front/index');

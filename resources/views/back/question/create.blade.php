@@ -61,22 +61,22 @@
                                         <legend>گزینه درست</legend>
                                         <div class="form-check">
                                             <label class="form-check-label">1</label>
-                                            <input type="radio" class="form-check-input" name="correctAnswer[correct_answer]" id="optionsRadios1" value="1" checked="">
+                                            <input type="radio" class="form-check-input" name="correctAnswer[correct_answer]" id="optionsRadios1" value="1" >
 
                                         </div>
                                         <div class="form-check">
                                             <label class="form-check-label">2</label>
-                                            <input type="radio" class="form-check-input" name="correctAnswer[correct_answer]" id="optionsRadios1" value="2" checked="">
+                                            <input type="radio" class="form-check-input" name="correctAnswer[correct_answer]" id="optionsRadios1" value="2" >
 
                                         </div>
                                         <div class="form-check">
                                             <label class="form-check-label">3</label>
-                                            <input type="radio" class="form-check-input" name="correctAnswer[correct_answer]"  id="optionsRadios1" value="3" checked="">
+                                            <input type="radio" class="form-check-input" name="correctAnswer[correct_answer]"  id="optionsRadios1" value="3" >
 
                                         </div>
                                         <div class="form-check">
                                             <label class="form-check-label">4</label>
-                                            <input type="radio" class="form-check-input" name="correctAnswer[correct_answer]" id="optionsRadios1" value="4" checked="">
+                                            <input type="radio" class="form-check-input" name="correctAnswer[correct_answer]" id="optionsRadios1" value="4" >
                                         </div>
 
                                     </fieldset>

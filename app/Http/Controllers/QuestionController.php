@@ -27,7 +27,8 @@ class QuestionController extends Controller
 
 
     $question=$questionnaire->questions()->create($request['question']);
-    $answer=$question->answers()->createMany($request['answers']);
+    $question->correctAnswer()->create($request['correctAnswer']);
+    $question->answers()->createMany($request['answers']);
 
 
         return redirect(route('questionnaire.show',$questionnaire->title));

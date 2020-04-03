@@ -7,6 +7,9 @@ use App\Http\Requests\CreateQuestionAndAnswersRequest;
 use App\Http\Requests\CreateQuestionnaireRequest;
 use App\Question;
 use App\Questionnaire;
+
+
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
 class QuestionController extends Controller
@@ -16,12 +19,15 @@ class QuestionController extends Controller
         return view('back.question.create',compact('questionnaire'));
     }
 
-    public function store(CreateQuestionAndAnswersRequest $request,Questionnaire $questionnaire)
+    public function store(Request $request,Questionnaire $questionnaire)
     {
 //چون ووردی به صورت ارایه می باشد پس بهتر است از روش زیر استفاده شود چون با روش اولیه ایجاد داده پیچیده میشود//
 
+       //نکته مهم دیگر این است که چون از طریق ارتباط بین جداول ادد کرده ایم پس میبایست  استفاده کرد از massAsighment
+
+
     $question=$questionnaire->questions()->create($request['question']);
-    $question->answers()->createMany($request['answers']);
+    $answer=$question->answers()->createMany($request['answers']);
 
 
         return redirect(route('questionnaire.show',$questionnaire->title));

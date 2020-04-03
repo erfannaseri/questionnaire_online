@@ -57,6 +57,29 @@
                                             @enderror
                                         </div>
                                     </div>
+                                    <fieldset class="form-group">
+                                        <legend>گزینه درست</legend>
+                                        <div class="form-check">
+                                            <label class="form-check-label">1</label>
+                                            <input type="radio" class="form-check-input" name="answer[correct_answer]" id="optionsRadios1" value="1" checked="">
+
+                                        </div>
+                                        <div class="form-check">
+                                            <label class="form-check-label">2</label>
+                                            <input type="radio" class="form-check-input" name="answer[correct_answer]" id="optionsRadios1" value="2" checked="">
+
+                                        </div>
+                                        <div class="form-check">
+                                            <label class="form-check-label">3</label>
+                                            <input type="radio" class="form-check-input" name="answer[correct_answer]"  id="optionsRadios1" value="3" checked="">
+
+                                        </div>
+                                        <div class="form-check">
+                                            <label class="form-check-label">4</label>
+                                            <input type="radio" class="form-check-input" name="answer[correct_answer]" id="optionsRadios1" value="4" checked="">
+                                        </div>
+
+                                    </fieldset>
                                 </fieldset>
                             </div>
                             <input class="btn btn-block btn-lg btn-secondary btn-outline-success" type="submit" value="اضافه کردن سوال ">

@@ -15,7 +15,7 @@
                             @endif
                             </div>
                             <div align="right" class="card-body">
-                                <h3 align="center" class="card-title"> {{$questionnaire->title}}</h3>
+                                <h3 align="center" class="card-title"> {{$questionnaire->title}} :  {{$questionnaire->grade}}</h3>
                                 <a href="{{route('questions.create',$questionnaire->title)}}"
                                    class="btn btn-outline-secondary">سوال جدید</a>
                                 <a href="/surveys/{{$questionnaire->id}}-{{Str::slug($questionnaire->title)}}"

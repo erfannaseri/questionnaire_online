@@ -1,5 +1,5 @@
 <?php
-c
+
 use Carbon\Carbon;
 
 function jDate(Carbon $datetime, $format = 'yyyy-MM-dd - hh:mm:ss', $fixNumbers = true): string

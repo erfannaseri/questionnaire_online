@@ -12,7 +12,7 @@
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/persian-datepicker.css') }}" rel="stylesheet">
 
-
+    {!! htmlScriptTagJsApi(['lang'=>'fa']) !!}
 </head>
 <body>
     <div id="app">

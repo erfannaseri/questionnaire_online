@@ -13,8 +13,8 @@ Route::group(['namespace'=>'front'],function(){
         return view('front.home');
     });
     Route::get('chart','QuestionnaireController@index')->name('questionnaire.all');
-    Route::get('chartTomorrow','QuestionnaireController@chartToDay')->name('questionnaire.tomorrow');
-    Route::get('chartToDay','QuestionnaireController@chartTomorrow')->name('questionnaire.today');
+    Route::get('chartTomorrow','QuestionnaireController@chartTomorrow')->name('questionnaire.tomorrow');
+    Route::get('chartToDay','QuestionnaireController@chartToday')->name('questionnaire.today');
 });
 
 

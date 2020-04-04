@@ -17,12 +17,13 @@ class QuestionnaireController extends Controller
         return view('front.chart',compact('charts'));
     }
 
-    public function chartToDay()
+    public function chartTomorrow()
     {
 
 
-       $exams=Questionnaire::whereBetween('id',[Carbon::now(),Carbon::now()->addDay(1)])->get();
 
-       return $exams;
+       $charts=Questionnaire::whereBetween('dateExam',[Carbon::now(),Carbon::now()->addDay(1)])->paginate(3);
+
+       return view('front.chartTomorrow',compact('charts'));
     }
 }

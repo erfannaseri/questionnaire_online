@@ -27,21 +27,21 @@ class QuestionnaireController extends Controller
 
 
         $timeEndExam=$this->getTimeExam($request->input('date-exam'),$request->input('start-exam'),$request->input('time-exam'));
-return $timeEndExam;
-//        $questionnaire=Questionnaire::create([
-//            'title'=>$request->input('title'),
-//            'grade'=>$request->input('grade'),
-//            'user_id'=>auth()->user()->id,
-//            'dateExam'=>$dateGregorian,
-//            'startExam'=>$request->input('start-exam'),
-//            'endExam'=>$timeEndExam,
-//        ]);
-//
-//
-//
-//        if ($questionnaire) {
-//            return redirect(route('questionnaire.index',auth()->user()->name));
-//        }
+
+        $questionnaire=Questionnaire::create([
+            'title'=>$request->input('title'),
+            'grade'=>$request->input('grade'),
+            'user_id'=>auth()->user()->id,
+            'dateExam'=>$dateGregorian,
+            'startExam'=>$request->input('start-exam'),
+            'endExam'=>$timeEndExam,
+        ]);
+
+
+
+        if ($questionnaire) {
+            return redirect(route('questionnaire.index',auth()->user()->name));
+       }
     }
 
     public function show(Questionnaire $questionnaire)

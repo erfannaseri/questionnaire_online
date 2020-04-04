@@ -13,7 +13,7 @@ class QuestionnaireController extends Controller
 
     public function index()
     {
-        $charts=Questionnaire::paginate(1);
+        $charts=Questionnaire::paginate(5);
         return view('front.chart',compact('charts'));
     }
 
@@ -28,7 +28,7 @@ class QuestionnaireController extends Controller
     {
         $charts=Questionnaire::whereBetween('dateExam',[Carbon::today(),Carbon::today()->addHour(18)])->paginate(3);
 
-        dd($charts);
-        return view('front.chartTomorrow',compact('charts'));
+
+        return view('front.chartToDAy',compact('charts'));
     }
 }

@@ -48,8 +48,9 @@
                             </div>
                                 <div class="card-footer" >
                                     <div style="margin-left: 250px">{{ $charts->links() }}</div>
-                                    <small>کاربر گرامی برای سهولت میتوانید از دکمه زیر جهت نمایش لیست امتحانات 24 ساعت اینده استفاده نمایید</small><br>
-                                    <a href="{{ route('questionnaire.tomorrow') }}" class="btn btn-outline-secondary">کلیک کنید</a>
+                                    <small>کاربر گرامی برای سهولت میتوانید از دکمه زیر جهت نمایش لیست امتحانات  استفاده نمایید</small><br>
+                                    <a href="{{ route('questionnaire.tomorrow') }}" class="btn btn-outline-secondary">24 ساعت اینده</a>
+                                    <a href="{{ route('questionnaire.today') }}" class="btn btn-outline-secondary">امروز</a>
                                 </div>
 
 

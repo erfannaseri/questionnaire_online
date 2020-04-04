@@ -46,7 +46,8 @@
                             <div align="right" class="form-group">
                                 <label  for="time-exam"> : زمان لازم</label>
                                 <input type="text" id=time-exam" name="time-exam"  value="{{ old('time-exam') }}"class="form-control @error('time-exam') is-invalid @enderror">
-                                <small >زمان را بر حسب دقیقه و فقط عددی وارد نمایید</small>
+                                <small style="color: darkblue">زمان را بر حسب دقیقه و فقط عددی وارد نمایید * </small><br>
+                                <small style="color: darkblue" >   زمان نباید بیشتر از 120 دقیقه باشد **</small>
                                 <br>
                                 @error('time-exam')
                                 <small class="text-danger">{{$message}}</small>

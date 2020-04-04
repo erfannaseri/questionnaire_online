@@ -37,9 +37,9 @@
                             <div align="right" class="form-group">
                                     <label for="start-exam">ساعت برگزاری</label>
                                     <select  class="form-control" name="start-exam" id="start-exam" >
-                                        <option value="02:30" selected >8:00 </option>
-                                        <option value="05:00" >10:30 </option>
-                                        <option value="08:30" >14:00 </option>
+                                        <option value="08:00" selected >8:00 </option>
+                                        <option value="10:30" >10:30 </option>
+                                        <option value="14:00" >14:00 </option>
                                         <option value="16:30" >16:30 </option>
                                     </select>
                             </div>

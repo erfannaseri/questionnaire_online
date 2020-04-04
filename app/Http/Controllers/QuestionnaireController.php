@@ -27,21 +27,21 @@ class QuestionnaireController extends Controller
 
 
         $timeEndExam=$this->getTimeExam($request->input('date-exam'),$request->input('start-exam'),$request->input('time-exam'));
-
-        $questionnaire=Questionnaire::create([
-            'title'=>$request->input('title'),
-            'grade'=>$request->input('grade'),
-            'user_id'=>auth()->user()->id,
-            'dateExam'=>$dateGregorian,
-            'startExam'=>$request->input('start-exam'),
-            'endExam'=>$timeEndExam,
-        ]);
-
-
-
-        if ($questionnaire) {
-            return redirect(route('questionnaire.index',auth()->user()->name));
-        }
+return $timeEndExam;
+//        $questionnaire=Questionnaire::create([
+//            'title'=>$request->input('title'),
+//            'grade'=>$request->input('grade'),
+//            'user_id'=>auth()->user()->id,
+//            'dateExam'=>$dateGregorian,
+//            'startExam'=>$request->input('start-exam'),
+//            'endExam'=>$timeEndExam,
+//        ]);
+//
+//
+//
+//        if ($questionnaire) {
+//            return redirect(route('questionnaire.index',auth()->user()->name));
+//        }
     }
 
     public function show(Questionnaire $questionnaire)
@@ -80,7 +80,7 @@ jDate(now());
         $gerGorian=Verta::getGregorian($date[0],$date[1],$date[2]);
         $time= date('Y-m-d',strtotime(implode($gerGorian)));
 
-        if ($end >= 60)
+        if ($end >= 60 && $end < 120)
         {
             $startExam=str_replace(':','',$start);
 
@@ -88,22 +88,39 @@ jDate(now());
             $endExam=($startExam+100)+$minute;
 
 
-            if (substr($endExam,1,1) > 5) {
-                $originalEndExam='0'.(($endExam-60)+100);
+            if (substr($endExam,2,1) > 5) {
+                $originalEndExam=(($endExam-60)+100);
+
                  return $time.' '.substr($originalEndExam,0,2).':'.substr($originalEndExam,2).':00';
             }else{
-                return $time.' '.'0'.substr($endExam,0,1).':'.substr($endExam,1).':00';
+
+
+                if ( substr($endExam,0,1) < 8) {
+                    return $time.' '.substr($endExam,0,2).':'.substr($endExam,2).':00';
+                }else{
+                    return $time.' '.'0'.substr($endExam,0,1).':'.substr($endExam,1).':00';
+                }
             }
 
-        } else {
+        } elseif($end <=59) {
             $startExam=str_replace(':','',$start);
             $eExam=$startExam+$end;
-            if (substr($eExam,1,1) > 5) {
-                $originalEndExam='0'.(($eExam-60)+100);
+
+            if (substr($eExam,2,1) > 5) {
+                $originalEndExam=(($eExam-60)+100);
                 return $time.' '.substr($originalEndExam,0,2).':'.substr($originalEndExam,2).':00';
             }else{
                 return $time.' '.'0'.substr($eExam,0,1).':'.substr($eExam,1).':00';
             }
+
+        } elseif ($end == 120) {
+
+            $startExam=str_replace(':','',$start);
+
+            $getHoure=substr($startExam,0,2);
+            $endExam=str_replace($getHoure,$getHoure+2,$startExam);
+
+          return $time.' '. substr($endExam,0,2).':'.substr($endExam,2).':00';
 
         }
 

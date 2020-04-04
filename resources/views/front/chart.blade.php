@@ -41,11 +41,15 @@
                                         <p align="center" class="alert alert-info">هیچ پرسشنامه ای ثبت نشده است</p>
                                         <a class="btn btn-outline-primary btn-secondary btn-lg btn-block" href="{{url('/home')}}">برگشت</a>
                                     @endforelse
+
                                     </tbody>
                                 </table>
-                            </div>
-                                <div class="card-footer">
 
+                            </div>
+                                <div class="card-footer" >
+                                    <div style="margin-left: 250px">{{ $charts->links() }}</div>
+                                    <small>کاربر گرامی برای سهولت میتوانید از دکمه زیر جهت نمایش لیست امتحانات 24 ساعت اینده استفاده نمایید</small><br>
+                                    <a href="{{ route('questionnaire.tomorrow') }}" class="btn btn-outline-secondary">کلیک کنید</a>
                                 </div>
 
 

@@ -6,6 +6,15 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
+Route::get('admin',function (){
+   return view('Panels.Admin.admin');
+})->name('admin.panel');
+Route::get('student',function (){
+    return view('Panels.Student.student');
+})->name('student.panel');
+Route::get('teacher',function (){
+    return view('Panels.Teacher.teacher');
+})->name('teacher.panel');
 
 
 Route::group(['namespace'=>'front'],function(){
@@ -16,6 +25,7 @@ Route::group(['namespace'=>'front'],function(){
     Route::get('chartTomorrow','QuestionnaireController@chartTomorrow')->name('questionnaire.tomorrow');
     Route::get('chartToDay','QuestionnaireController@chartToday')->name('questionnaire.today');
 });
+
 
 
 Route::get('/home', 'HomeController@index')->name('home');

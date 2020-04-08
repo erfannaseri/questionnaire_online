@@ -12,4 +12,9 @@ class CourseController extends Controller
         $courses=Course::all();
         return view('back.panels.admin.course.all-course',compact('courses'));
     }
+
+    public function showFormCreateCourse()
+    {
+        return view('back.panels.admin.course.create-course');
+    }
 }

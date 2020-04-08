@@ -32,7 +32,7 @@
                             @endforelse
                                 <a class="btn btn-outline-primary btn-secondary " href="{{ route('admin.panel',Auth::user()->name) }}">برگشت</a>
                                 <a class="btn btn-outline-primary btn-info "style="margin-left: 480px"
-                                   href="#">ثبت درس جدید</a>
+                                   href="{{ route('course.create') }}">ثبت درس جدید</a>
 
                             </tbody>
                         </table>

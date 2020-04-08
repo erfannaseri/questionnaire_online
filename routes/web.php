@@ -19,7 +19,7 @@ Route::group(['prefix'=>'admin','middleware'=>'checkAdmin'] ,function (){
     Route::group(['prefix'=>'course'],function (){
         Route::get('/all','Back\CourseController@index')->name('course.all');
         Route::get('create','Back\CourseController@showFormCreateCourse')->name('course.create');
-        Route::post('','Back\CourseController@Store')->name('course.store');
+        Route::post('','Back\CourseController@store')->name('course.store');
     });
 });
 

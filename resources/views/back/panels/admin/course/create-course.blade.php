@@ -6,7 +6,7 @@
             @include('back.panels.admin.sideBar')
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">{{ __('ثبت درس جدید') }}</div>
+                    <div class="card-header" align="center"><h3 style="font-family: 'Courier New'">{{ __('ثبت درس جدید') }}</h3></div>
 
                     <div class="card-body">
                         <form method="POST" action="{{ route('course.store') }}">

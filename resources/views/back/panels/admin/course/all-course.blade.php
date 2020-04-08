@@ -29,8 +29,11 @@
                             </tr>
                             @empty
                                 <p align="center" class="alert alert-info">درسی برای ارائه ثبت نشده است</p>
-                                <a class="btn btn-outline-primary btn-secondary btn-lg btn-block" href="{{ route('admin.panel',Auth::user()->name) }}">برگشت</a>
                             @endforelse
+                                <a class="btn btn-outline-primary btn-secondary " href="{{ route('admin.panel',Auth::user()->name) }}">برگشت</a>
+                                <a class="btn btn-outline-primary btn-info "style="margin-left: 480px"
+                                   href="#">ثبت درس جدید</a>
+
                             </tbody>
                         </table>
                     </div>

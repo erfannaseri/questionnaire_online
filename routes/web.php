@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 Auth::routes();
-
+/*********************** ADMIN ROUTES ******************************/
 Route::group(['prefix'=>'admin','middleware'=>'checkAdmin'] ,function (){
    Route::get('/{user:name}','Back\AdminController@index')->name('admin.panel');
    Route::group(['prefix'=>'questionnaire'],function (){
@@ -18,17 +18,23 @@ Route::group(['prefix'=>'admin','middleware'=>'checkAdmin'] ,function (){
     });
     Route::group(['prefix'=>'course'],function (){
         Route::get('/all','Back\CourseController@index')->name('course.all');
+        Route::get('create','Back\CourseController@showFormCreateCourse')->name('course.create');
+        Route::post('','Back\CourseController@Store')->name('course.store');
     });
 });
 
+/*********************** STUDENT ROUTES ******************************/
 Route::group(['prefix'=>'student','middleware'=>'checkStudent'] ,function (){
     Route::get('/{user:name}','Back\StudentController@index')->name('student.panel');
 });
 
+/*********************** TEACHER ROUTES ******************************/
 Route::group(['prefix'=>'teacher','middleware'=>'checkTeacher'] ,function (){
     Route::get('/{user:name}','Back\TeacherController@index')->name('teacher.panel');
 });
 
+
+/*********************** FRONT ROUTES ********************************/
 Route::group(['namespace'=>'front'],function(){
     Route::get('/', function () {
         return view('front.home');

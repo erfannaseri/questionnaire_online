@@ -29,7 +29,7 @@
                             <div class="form-group row">
                                 <label for="grade"  class="col-md-4 col-form-label text-md-right">پایه تحصیلی</label>
                                 <div class="col-md-6">
-                                    <select class="form-control" id="grade" name="grade">
+                                    <select class="form-control" id="grade" name="grade" required>
                                         <option value="1">پایه اول</option>
                                         <option value="2">پایه دوم</option>
                                         <option value="3">پایه سوم</option>
@@ -56,6 +56,7 @@
                             </div>
                         </form>
                     </div>
+                   
                 </div>
             </div>
         </div>

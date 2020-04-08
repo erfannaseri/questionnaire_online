@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Back;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use App\Http\Requests\CreateCourseRequest;
 use App\Course;
 class CourseController extends Controller
 {
@@ -18,8 +18,8 @@ class CourseController extends Controller
         return view('back.panels.admin.course.create-course');
     }
 
-    public function store(Request $request)
+    public function store(CreateCourseRequest $request)
     {
-        //
+        return $request->all();
     }
 }

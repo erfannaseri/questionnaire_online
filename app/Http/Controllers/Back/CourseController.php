@@ -17,4 +17,9 @@ class CourseController extends Controller
     {
         return view('back.panels.admin.course.create-course');
     }
+
+    public function store(Request $request)
+    {
+        //
+    }
 }

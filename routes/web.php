@@ -16,7 +16,9 @@ Route::group(['prefix'=>'admin','middleware'=>'checkAdmin'] ,function (){
         Route::get('/all','Back\StudentController@allStudent')->name('student.all');
         Route::get('/{user:name}','Back\StudentController@show')->name('student.show');
     });
-
+    Route::group(['prefix'=>'course'],function (){
+        Route::get('/all','Back\CourseController@index')->name('course.all');
+    });
 });
 
 Route::group(['prefix'=>'student','middleware'=>'checkStudent'] ,function (){

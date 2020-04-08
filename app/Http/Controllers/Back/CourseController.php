@@ -20,6 +20,10 @@ class CourseController extends Controller
 
     public function store(CreateCourseRequest $request)
     {
-        return $request->all();
+        $course=Course::create($request->all());
+
+        if ($course) {
+            return redirect(route('course.all'));
+        }
     }
 }

@@ -10,32 +10,34 @@
 
                     <div class="card-body">
                         <table class="table table-dark table-striped">
-                            <thead>
-                            @forelse($courses as $course)
+                            <thead align="center">
+
                                 <tr>
+                                    <th>پایه تحصیلی</th>
                                     <th>نام درس</th>
-                                    <th>سال تحصیلی</th>
                                     <th>کد</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody align="center">
+                            @forelse($courses as $course)
                             <tr>
-                                <td>{{$course->title}}</td>
                                 <td>{{$course->grade}}</td>
+                                <td>{{$course->title}}</td>
                                 <td>{{$course->id}}</td>
 
-                                <td><a href="{{route('questionnaire.show',$questionnaire->title)}}" class="btn btn-success btn-outline-primary">جزییات</a></td>
-                                <td><a class="btn btn-info btn-outline-primary" href="{{route('questions.create',$questionnaire->title)}}">طراحی سوالات</a></td>
-                            </tr>
+
                             @empty
                                 <p align="center" class="alert alert-info">درسی برای ارائه ثبت نشده است</p>
                             @endforelse
-                                <a class="btn btn-outline-primary btn-secondary " href="{{ route('admin.panel',Auth::user()->name) }}">برگشت</a>
-                                <a class="btn btn-outline-primary btn-info "style="margin-left: 480px"
-                                   href="{{ route('course.create') }}">ثبت درس جدید</a>
+
 
                             </tbody>
                         </table>
+                    </div>
+                    <div class=" card-footer">
+                        <a class="btn btn-outline-primary btn-secondary " href="{{ route('admin.panel',Auth::user()->name) }}">برگشت</a>
+                        <a class="btn btn-outline-primary btn-info "style="margin-left: 480px"
+                           href="{{ route('course.create') }}">ثبت درس جدید</a>
                     </div>
                 </div>
 

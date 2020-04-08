@@ -6,16 +6,23 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
-Route::get('admin',function (){
-   return view('Panels.Admin.admin');
-})->name('admin.panel')->middleware('checkAdmin');
-Route::get('student',function (){
-    return view('Panels.Student.student');
-})->name('student.panel')->middleware('checkStudent');
-Route::get('teacher',function (){
-    return view('Panels.Teacher.teacher');
-})->name('teacher.panel')->middleware('checkTeacher');
+Route::group(['prefix'=>'admin','middleware'=>'checkAdmin'] ,function (){
+   Route::get('',function (){
+       return view('Panels.Admin.admin');
+   })->name('admin.panel');
+});
 
+Route::group(['prefix'=>'student','middleware'=>'checkStudent'] ,function (){
+    Route::get('/{user:name}',function (){
+        return view('Panels.Student.student');
+    })->name('student.panel');
+});
+
+Route::group(['prefix'=>'teacher','middleware'=>'checkTeacher'] ,function (){
+    Route::get('',function (){
+        return view('Panels.Teacher.teacher');
+    })->name('teacher.panel');
+});
 
 Route::group(['namespace'=>'front'],function(){
     Route::get('/', function () {

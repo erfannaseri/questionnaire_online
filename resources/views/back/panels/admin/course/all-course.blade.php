@@ -9,7 +9,12 @@
                     <div align="center" class="card-header"><h3 style="font-family: 'Courier New'">لیست کل دروس </h3>
                         @if ( session('successUpdate'))
                             <hr>
-                            <h4 align="center" class="alert alert-success">{{ session('successUpdate')}}</h4>
+                            <h4 align="center" class="alert alert-success" style="font-family: 'Courier New'">{{ session('successUpdate')}}</h4>
+                            <hr>
+                        @endif
+                        @if ( session('successUpdate'))
+                            <hr>
+                            <h4 align="center" class="alert alert-danger" style="font-family: 'Courier New'">{{ session('brokenUpdate')}}</h4>
                             <hr>
                         @endif
                     </div>

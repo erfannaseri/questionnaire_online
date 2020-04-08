@@ -41,5 +41,11 @@ class CourseController extends Controller
         if ($result) {
             return redirect(route('course.all'))->with('successUpdate','بروزرسانی با موفقیت انجام شد');
         }
+        return redirect(route('course.all'))->with('brokenUpdate','بروزرسانی با شکست روبرو شد');
+    }
+
+    public function destroy(Course $course)
+    {
+
     }
 }

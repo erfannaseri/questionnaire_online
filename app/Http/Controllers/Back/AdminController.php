@@ -9,6 +9,6 @@ class AdminController extends Controller
 {
     public function index()
     {
-        return view('Panels.Admin.admin');
+        return view('back.panels.admin.admin');
     }
 }

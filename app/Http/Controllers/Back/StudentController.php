@@ -9,6 +9,6 @@ class StudentController extends Controller
 {
     public function index()
     {
-        return view('Panels.Student.student');
+        return view('back.panels.student.student');
     }
 }

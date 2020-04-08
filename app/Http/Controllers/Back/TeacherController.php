@@ -9,6 +9,6 @@ class TeacherController extends Controller
 {
     public function index()
     {
-        return view('Panels.Teacher.teacher');
+        return view('back.panels.teacher.teacher');
     }
 }

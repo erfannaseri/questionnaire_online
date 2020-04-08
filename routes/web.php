@@ -22,7 +22,7 @@ Route::group(['prefix'=>'admin','middleware'=>'checkAdmin'] ,function (){
         Route::post('','Back\CourseController@store')->name('course.store');
         Route::get('/{course}/edit','Back\CourseController@showFormEditCourse')->name('course.edit');
         Route::put('/{course}','Back\CourseController@update')->name('course.update');
-        Route::delete('','Back\CourseController@store')->name('course.destroy');
+        Route::delete('/{course}','Back\CourseController@destroy')->name('course.destroy');
     });
 });
 

@@ -6,7 +6,13 @@
             @include('back.panels.admin.sideBar')
             <div class="col-md-8">
                 <div class="card">
-                    <div align="center" class="card-header"><h3 style="font-family: 'Courier New'">لیست کل دروس </h3></div>
+                    <div align="center" class="card-header"><h3 style="font-family: 'Courier New'">لیست کل دروس </h3>
+                        @if ( session('successUpdate'))
+                            <hr>
+                            <h4 align="center" class="alert alert-success">{{ session('successUpdate')}}</h4>
+                            <hr>
+                        @endif
+                    </div>
 
                     <div class="card-body">
                         <table class="table table-dark table-striped">

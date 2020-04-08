@@ -9,7 +9,7 @@
                     <div class="card-header" align="center"><h3 style="font-family: 'Courier New'">{{ __('ثبت درس جدید') }}</h3></div>
 
                     <div class="card-body">
-                        <form method="POST" action="{{ route('course.update') }}">
+                        <form method="POST" action="{{ route('course.update',$course->id) }}">
                             @csrf
                             @method('PUT')
                             <div class="form-group row">
@@ -50,7 +50,7 @@
                             <div class="form-group row mb-0">
                                 <div class="col-md-6 offset-md-4">
                                     <button type="submit" class="btn btn-primary">
-                                        {{ __('ثبت') }}
+                                        {{ __('ثبت تغییرات') }}
                                     </button>
                                 </div>
                             </div>

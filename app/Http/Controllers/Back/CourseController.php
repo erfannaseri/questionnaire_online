@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Back;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CreateCourseRequest;
 use App\Course;
+use Illuminate\Http\Request;
+
 class CourseController extends Controller
 {
     public function index()
@@ -30,5 +32,14 @@ class CourseController extends Controller
     public function showFormEditCourse(Course $course)
     {
         return view('back.panels.admin.course.edit-course',compact('course'));
+    }
+
+    public function update(Request $request,Course $course)
+    {
+        $result=$course->update($request->all());
+
+        if ($result) {
+            return redirect(route('course.all'))->with('successUpdate','بروزرسانی با موفقیت انجام شد');
+        }
     }
 }

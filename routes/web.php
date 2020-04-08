@@ -8,13 +8,13 @@ Auth::routes();
 
 Route::get('admin',function (){
    return view('Panels.Admin.admin');
-})->name('admin.panel');
+})->name('admin.panel')->middleware('checkAdmin');
 Route::get('student',function (){
     return view('Panels.Student.student');
-})->name('student.panel');
+})->name('student.panel')->middleware('checkStudent');
 Route::get('teacher',function (){
     return view('Panels.Teacher.teacher');
-})->name('teacher.panel');
+})->name('teacher.panel')->middleware('checkTeacher');
 
 
 Route::group(['namespace'=>'front'],function(){

@@ -7,7 +7,9 @@ use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use App\Http\Requests\LoginRequest;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
 use App\User;
+use App\Services\Roles\Enums\RoleTypes;
 class LoginController extends Controller
 {
     /*
@@ -35,31 +37,45 @@ class LoginController extends Controller
      *
      * @return void
      */
-//    public function __construct()
-//    {
-//        $this->middleware('guest')->except('logout');
-//    }
-
-
-    public function login(LoginRequest $request)
+    public function __construct()
     {
-
-       $result=Auth::attempt(['email'=>$request->email,'password'=>$request->password]);
-
-        if ($result) {
-
-            $user=User::where('email',$request->email)->first();
-
-            if ($user->role == 1) {
-                return redirect(route('admin.panel'));
-            }
-            if ($user->role == 2) {
-                return redirect(route('student.panel'));
-            }
-            if ($user->role == 3) {
-                return redirect(route('teacher.panel'));
-            }
-        }
+        $this->middleware('guest')->except('logout');
     }
 
+
+//    public function login(LoginRequest $request)
+//    {
+//
+//       $result=Auth::attempt(['email'=>$request->email,'password'=>$request->password]);
+//
+//        if ($result) {
+//
+//            $user=User::where('email',$request->email)->first();
+//
+//            if ($user->role == 1) {
+//                return redirect(route('admin.panel'));
+//            }
+//            if ($user->role == 2) {
+//                return redirect(route('student.panel'));
+//            }
+//            if ($user->role == 3) {
+//                return redirect(route('teacher.panel'));
+//            }
+//        }
+//    }
+
+    public function sendLoginResponse(Request $request)
+    {
+        $request->session()->regenerate();
+        $this->clearLoginAttempts($request);
+
+          if (Auth::user()->role == RoleTypes::ADMIN) {
+              return redirect(route('admin.panel'));
+          }elseif (Auth::user()->role == RoleTypes::STUDENT) {
+              return redirect(route('student.panel'));
+          }
+          elseif (Auth::user()->role == RoleTypes::TEACHER) {
+              return redirect(route('teacher.panel'));
+          }
+    }
 }

@@ -1,10 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Back;
 
 use App\Http\Requests\CreateSurveyRequset;
 use App\Questionnaire;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+
 
 class SurveyController extends Controller
 {

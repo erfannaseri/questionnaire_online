@@ -8,6 +8,11 @@ Auth::routes();
 
 Route::group(['prefix'=>'admin','middleware'=>'checkAdmin'] ,function (){
    Route::get('/{user:name}','Back\AdminController@index')->name('admin.panel');
+   Route::group(['prefix'=>'questionnaire'],function (){
+       Route::get('/csd','Back\QuestionnaireController@index')->name('questionnaire.index');
+       Route::get('questionnaires/{questionnaire}','Back\QuestionnaireController@show')->name('questionnaire.show');
+   });
+
 });
 
 Route::group(['prefix'=>'student','middleware'=>'checkStudent'] ,function (){
@@ -30,10 +35,7 @@ Route::group(['namespace'=>'front'],function(){
 
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('questionnaire/create','QuestionnaireController@create')->name('questionnaire.create')->middleware('auth');
-Route::post('questionnaire','QuestionnaireController@store')->name('questionnaire.store');
-Route::get('/{user}/questionnaires','QuestionnaireController@index')->name('questionnaire.index');
-Route::get('questionnaires/{questionnaire}','QuestionnaireController@show')->name('questionnaire.show')->middleware('auth');
+
 
 Route::group(['middleware'=>'auth','prefix'=>'questionnaires'],function (){
     Route::get('/{questionnaire}/questions/create','QuestionController@create')

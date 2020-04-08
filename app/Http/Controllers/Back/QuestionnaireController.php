@@ -1,18 +1,27 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Back;
 
 use App\Http\Requests\CreateQuestionnaireRequest;
 use App\Questionnaire;
 use App\User;
 use Illuminate\Http\Request;
 use Hekmatinasser\Verta\Verta;
+use App\Http\Controllers\Controller;
+
 class QuestionnaireController extends Controller
 {
-    public function index(User $user)
+    public function questionnaireUser(User $user)
     {
         $questionnaires=$user->questionnaires;
         return view('back.questionnaire.index',compact('questionnaires'));
+    }
+
+    public function index()
+    {
+        $questionnire=Questionnaire::all();
+
+        return view('Panels.Admin.questionnaire.all-questionnaire');
     }
 
     public function create()

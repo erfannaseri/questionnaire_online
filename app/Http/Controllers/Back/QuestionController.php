@@ -1,16 +1,15 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Back;
 
 use App\Answer;
 use App\Http\Requests\CreateQuestionAndAnswersRequest;
 use App\Http\Requests\CreateQuestionnaireRequest;
 use App\Question;
 use App\Questionnaire;
-
-
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use App\Http\Controllers\Controller;
 
 class QuestionController extends Controller
 {

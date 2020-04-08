@@ -13,14 +13,19 @@
                             <thead align="center">
 
                                 <tr>
+                                    <th colspan="2">---</th>
                                     <th>پایه تحصیلی</th>
                                     <th>نام درس</th>
                                     <th>کد</th>
+
                                 </tr>
                             </thead>
                             <tbody align="center">
                             @forelse($courses as $course)
                             <tr>
+                                <td><a href="" class="btn btn-success btn-outline-secondary">حذف</a></td>
+                                <td><a href="{{ route('course.edit',$course->id) }}" class="btn btn-dark btn-outline-success">ویرایش</a></td>
+
                                 <td>{{$course->grade}}</td>
                                 <td>{{$course->title}}</td>
                                 <td>{{$course->id}}</td>

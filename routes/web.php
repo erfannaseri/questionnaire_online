@@ -20,6 +20,9 @@ Route::group(['prefix'=>'admin','middleware'=>'checkAdmin'] ,function (){
         Route::get('/all','Back\CourseController@index')->name('course.all');
         Route::get('create','Back\CourseController@showFormCreateCourse')->name('course.create');
         Route::post('','Back\CourseController@store')->name('course.store');
+        Route::get('/{course}','Back\CourseController@showFormEditCourse')->name('course.edit');
+        Route::put('','Back\CourseController@store')->name('course.update');
+        Route::delete('','Back\CourseController@store')->name('course.destroy');
     });
 });
 

@@ -19,4 +19,9 @@ class StudentController extends Controller
 
         return view('back.panels.admin.student.all-student',compact('students'));
     }
+
+    public function show(User $user)
+    {
+
+    }
 }

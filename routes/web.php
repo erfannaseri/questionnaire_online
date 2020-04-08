@@ -14,7 +14,7 @@ Route::group(['prefix'=>'admin','middleware'=>'checkAdmin'] ,function (){
    });
     Route::group(['prefix'=>'student'],function (){
         Route::get('/all','Back\StudentController@allStudent')->name('student.all');
-        Route::get('questionnaires/{questionnaire}','Back\QuestionnaireController@show')->name('questionnaire.show');
+        Route::get('/{user:name}','Back\StudentController@show')->name('student.show');
     });
 
 });

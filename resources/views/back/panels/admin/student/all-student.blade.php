@@ -31,7 +31,7 @@
                             <tr>
                                 <td>{{ jDate($student->created_at) }}</td>
                                 <td>{{$student->email}}</td>
-                                <td>{{$student->name}}</td>
+                                <td><a href="{{ route('student.show',$student->name) }}" class="btn btn-info">{{$student->name}}</a></td>
                             </tr>
                             @empty
                                 <p align="center" class="alert alert-info">هیچ دانش آموزی وجود ندارد</p>

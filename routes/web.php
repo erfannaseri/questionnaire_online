@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 Route::group(['prefix'=>'admin','middleware'=>'checkAdmin'] ,function (){
-   Route::get('',function (){
+   Route::get('/{user:name}',function (){
        return view('Panels.Admin.admin');
    })->name('admin.panel');
 });
@@ -19,7 +19,7 @@ Route::group(['prefix'=>'student','middleware'=>'checkStudent'] ,function (){
 });
 
 Route::group(['prefix'=>'teacher','middleware'=>'checkTeacher'] ,function (){
-    Route::get('',function (){
+    Route::get('/{user:name}',function (){
         return view('Panels.Teacher.teacher');
     })->name('teacher.panel');
 });

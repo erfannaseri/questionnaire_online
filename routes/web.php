@@ -9,7 +9,7 @@ Auth::routes();
 Route::group(['prefix'=>'admin','middleware'=>'checkAdmin'] ,function (){
    Route::get('/{user:name}','Back\AdminController@index')->name('admin.panel');
    Route::group(['prefix'=>'questionnaire'],function (){
-       Route::get('/csd','Back\QuestionnaireController@index')->name('questionnaire.index');
+       Route::get('/all','Back\QuestionnaireController@index')->name('questionnaire.index');
        Route::get('questionnaires/{questionnaire}','Back\QuestionnaireController@show')->name('questionnaire.show');
    });
 

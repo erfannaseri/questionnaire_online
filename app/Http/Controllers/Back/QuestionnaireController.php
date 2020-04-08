@@ -19,9 +19,9 @@ class QuestionnaireController extends Controller
 
     public function index()
     {
-        $questionnire=Questionnaire::all();
+        $questionnaires=Questionnaire::all();
 
-        return view('Panels.Admin.questionnaire.all-questionnaire');
+        return view('back.panels.admin.questionnaire.all-questionnaire',compact('questionnaires'));
     }
 
     public function create()

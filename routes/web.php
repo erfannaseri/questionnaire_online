@@ -7,21 +7,15 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 Route::group(['prefix'=>'admin','middleware'=>'checkAdmin'] ,function (){
-   Route::get('/{user:name}',function (){
-       return view('Panels.Admin.admin');
-   })->name('admin.panel');
+   Route::get('/{user:name}','Back\AdminController@index')->name('admin.panel');
 });
 
 Route::group(['prefix'=>'student','middleware'=>'checkStudent'] ,function (){
-    Route::get('/{user:name}',function (){
-        return view('Panels.Student.student');
-    })->name('student.panel');
+    Route::get('/{user:name}','Back\StudentController@index')->name('student.panel');
 });
 
 Route::group(['prefix'=>'teacher','middleware'=>'checkTeacher'] ,function (){
-    Route::get('/{user:name}',function (){
-        return view('Panels.Teacher.teacher');
-    })->name('teacher.panel');
+    Route::get('/{user:name}','Back\TeacherController@index')->name('teacher.panel');
 });
 
 Route::group(['namespace'=>'front'],function(){

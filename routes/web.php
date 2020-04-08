@@ -9,9 +9,13 @@ Auth::routes();
 Route::group(['prefix'=>'admin','middleware'=>'checkAdmin'] ,function (){
    Route::get('/{user:name}','Back\AdminController@index')->name('admin.panel');
    Route::group(['prefix'=>'questionnaire'],function (){
-       Route::get('/all','Back\QuestionnaireController@index')->name('questionnaire.index');
+       Route::get('/all','Back\QuestionnaireController@allQuestionnaire')->name('questionnaire.all');
        Route::get('questionnaires/{questionnaire}','Back\QuestionnaireController@show')->name('questionnaire.show');
    });
+    Route::group(['prefix'=>'student'],function (){
+        Route::get('/all','Back\StudentController@allStudent')->name('student.all');
+        Route::get('questionnaires/{questionnaire}','Back\QuestionnaireController@show')->name('questionnaire.show');
+    });
 
 });
 
@@ -27,7 +31,7 @@ Route::group(['namespace'=>'front'],function(){
     Route::get('/', function () {
         return view('front.home');
     });
-    Route::get('chart','QuestionnaireController@index')->name('questionnaire.all');
+    //Route::get('chart','QuestionnaireController@index')->name('questionnaire.all');
     Route::get('chartTomorrow','QuestionnaireController@chartTomorrow')->name('questionnaire.tomorrow');
     Route::get('chartToDay','QuestionnaireController@chartToday')->name('questionnaire.today');
 });

@@ -5,10 +5,10 @@
         <div class="row justify-content-center">
             <div class="col-md-4" style="margin-right: -200px;margin-left: -200px">
                 <div class="btn-group-vertical">
-                    <a href="{{ route('questionnaire.index') }}" class="btn btn-info">دانش آموز</a>
+                    <a href="{{ route('student.all') }}" class="btn btn-info">دانش آموز</a>
                     <a href="#" class="btn btn-secondary">معلمان</a>
                     <a href="#" class="btn btn-danger">کل دروس</a>
-                    <a href="#" class="btn btn-primary">سوالات</a>
+                    <a href="{{ route('questionnaire.all') }}" class="btn btn-primary">سوالات</a>
                     <a href="#" class="btn btn-success">پاسخ نامه سوالات</a>
                 </div>
             </div>
@@ -38,7 +38,7 @@
                             </tr>
                             @empty
                                 <p align="center" class="alert alert-info">هیچ پرسشنامه ای ثبت نشده است</p>
-                                <a class="btn btn-outline-primary btn-secondary btn-lg btn-block" href="{{url('/home')}}">برگشت</a>
+                                <a class="btn btn-outline-primary btn-secondary btn-lg btn-block" href="{{ route('admin.panel',Auth::user()->name) }}">برگشت</a>
                             @endforelse
                             </tbody>
                         </table>

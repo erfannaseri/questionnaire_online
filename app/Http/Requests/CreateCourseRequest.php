@@ -24,7 +24,7 @@ class CreateCourseRequest extends FormRequest
     public function rules()
     {
         return [
-            'title'=>'bail|required|alpha|min:3',
+            'title'=>'bail|required|alpha_spaces|min:3',
             'grade'=>'required'
         ];
     }
@@ -33,7 +33,7 @@ class CreateCourseRequest extends FormRequest
     {
         return [
             'title.required'=>'نام درس را وارد نمایید',
-            'title.alpha'=>'english نام درس فقط باید رشته باید مانند : تاریخ یا  ',
+            'title.alpha_spaces'=>'english نام درس فقط باید رشته باید مانند : تاریخ یا  ',
             'title.min'=>'نام درس وارد شده بسیار کوتاه است دست کم باید سه حرفی باشد مانند : هنر',
             'grade.required'=>'پایه تحصیلی را وارد نمایید',
         ];

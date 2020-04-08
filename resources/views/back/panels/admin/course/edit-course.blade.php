@@ -16,7 +16,7 @@
                                 <label for="title" class="col-md-4 col-form-label text-md-right">{{ __('عنوان درس') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="grade" type="text" class="form-control @error('title') is-invalid @enderror" name="title" value="{{ $course->title }}" required autocomplete="email">
+                                    <input id="grade" type="text" class="form-control @error('title') is-invalid @enderror" name="title" value="{{ $course->title }}" required >
 
                                     @error('title')
                                     <span class="invalid-feedback" role="alert">

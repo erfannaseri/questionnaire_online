@@ -26,4 +26,9 @@ class CourseController extends Controller
             return redirect(route('course.all'));
         }
     }
+
+    public function showFormEditCourse(Course $course)
+    {
+        return view('back.panels.admin.course.edit-course',compact('course'));
+    }
 }

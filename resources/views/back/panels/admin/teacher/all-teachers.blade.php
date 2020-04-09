@@ -28,8 +28,13 @@
                             @forelse($teachers as $teacher)
                             <tbody align="center">
                             <tr>
-                                <td>ویرایش</td>
-                                <td>حذف</td>
+                                <td><a href="{{ route('teacher.edit',$teacher->name) }}"
+                                       class="btn btn-outline-secondary btn-info">ویرایش</a></td>
+                                <form action="{{ route('teacher.destroy',$teacher->name) }}" method="post">
+                                    @csrf
+                                    @method('DELETE')
+                                    <td><button type="submit" class="btn btn-outline-secondary btn-danger">حذف</button></td>
+                                </form>
                                 <td>{{ jDate($teacher->created_at) }}</td>
                                 <td>{{$teacher->email}}</td>
                                 <td><a href="{{ route('student.show',$teacher->name) }}" class="btn btn-info">{{$teacher->name}}</a></td>

@@ -3,6 +3,7 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
+            @include('back.panels.admin.sideBar')
             <div class="col-md-8">
                 <div class="card">
                     <div align="center" class="card-header" style="font-family: 'Courier New ';background: aqua"><h3>ثبت نام معلم ها</h3></div>

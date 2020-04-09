@@ -5,7 +5,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header" style="font-family: 'Courier New'">{{ __('ثبت نام معلم ها') }}</div>
+                    <div align="center" class="card-header" style="font-family: 'Courier New ';background: aqua"><h3>ثبت نام معلم ها</h3></div>
 
                     <div class="card-body">
                         <form method="POST" action="{{ route('register') }}">

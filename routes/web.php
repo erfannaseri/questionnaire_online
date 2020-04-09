@@ -19,7 +19,7 @@ Route::group(['prefix'=>'admin','middleware'=>'checkAdmin','namespace'=>'Back\Ad
 
     Route::group(['prefix'=>'teacher'],function (){
         Route::get('/all','TeacherController@index')->name('teacher.all');
-        Route::get('/{user:name}','TeacherController@show')->name('teacher.detail');
+        //Route::get('/{user:name}','TeacherController@show')->name('teacher.detail');
         Route::get('/create','TeacherController@showFormCreateTeacher')->name('teacher.create');
         Route::post('/','TeacherController@store')->name('teacher.store');
         Route::get('/{user:name}/edit','TeacherController@showFormEditTeacher')->name('teacher.edit');

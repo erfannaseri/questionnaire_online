@@ -14,4 +14,9 @@ class TeacherController extends Controller
 
         return view('back.panels.admin.teacher.all-teachers',compact('teachers'));
     }
+
+    public function showFormCreateTeacher()
+    {
+        return view('back.panels.admin.teacher.create-teacher');
+    }
 }

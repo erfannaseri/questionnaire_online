@@ -24,7 +24,7 @@
                             <tr>
                                 <td>{{ jDate($teacher->created_at) }}</td>
                                 <td>{{$teacher->email}}</td>
-                                <td><a href="{{ route('student.show',$teacher->name) }}" class="btn btn-info">{{$teacher->name}}</a></td>
+                                <td><a href="{{ route('student.show',$teacherb->name) }}" class="btn btn-info">{{$teacher->name}}</a></td>
                             </tr>
                             @empty
                                 <p align="center" class="alert alert-info">هیچ دانش آموزی وجود ندارد</p>

@@ -16,6 +16,10 @@ Route::group(['prefix'=>'admin','middleware'=>'checkAdmin','namespace'=>'Back\Ad
         Route::get('/all','StudentController@index')->name('student.all');
         Route::get('/{user:name}','StudentController@show')->name('student.show');
     });
+
+    Route::group(['prefix'=>'teacher'],function (){
+        Route::get('/all','TeacherController@index')->name('teacher.all');
+    });
     Route::group(['prefix'=>'course'],function (){
         Route::get('/all','CourseController@index')->name('course.all');
         Route::get('create','CourseController@showFormCreateCourse')->name('course.create');

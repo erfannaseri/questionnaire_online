@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\User;
 use Illuminate\Support\Facades\Hash;
-
+use App\Http\Requests\CreateTeacherRequest;
 class TeacherController extends Controller
 {
     public function index()
@@ -21,7 +21,7 @@ class TeacherController extends Controller
         return view('back.panels.admin.teacher.create-teacher');
     }
 
-    public function store(Request $request)
+    public function store(CreateTeacherRequest $request)
     {
         if ($request->role == 3) {
             $user=User::create([

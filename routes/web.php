@@ -24,7 +24,7 @@ Route::group(['prefix'=>'admin','middleware'=>'checkAdmin','namespace'=>'Back\Ad
         Route::post('/','TeacherController@store')->name('teacher.store');
         Route::get('/{user:name}/edit','TeacherController@showFormEditTeacher')->name('teacher.edit');
         Route::put('/{user:name}','TeacherController@update')->name('teacher.update');
-        Route::put('/{user:name}','TeacherController@destroy')->name('teacher.destroy');
+        Route::delete('/{user:name}','TeacherController@destroy')->name('teacher.destroy');
     });
     Route::group(['prefix'=>'course'],function (){
         Route::get('/all','CourseController@index')->name('course.all');

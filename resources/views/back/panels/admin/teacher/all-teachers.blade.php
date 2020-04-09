@@ -27,11 +27,16 @@
                                 <td><a href="{{ route('student.show',$teacherb->name) }}" class="btn btn-info">{{$teacher->name}}</a></td>
                             </tr>
                             @empty
-                                <p align="center" class="alert alert-info">هیچ دانش آموزی وجود ندارد</p>
-                                <a class="btn btn-outline-primary btn-secondary btn-lg btn-block" href="{{url('/home')}}">برگشت</a>
+                                <p align="center" class="alert alert-info" style="font-family: 'Courier New'">هیچ معلمی را ثبت نام نکرده اید</p>
+
                             @endforelse
                             </tbody>
                         </table>
+                    </div>
+                    <div class=" card-footer">
+                        <a class="btn btn-outline-primary btn-secondary " href="{{ route('admin.panel',Auth::user()->name) }}">برگشت</a>
+                        <a class="btn btn-outline-primary btn-info "style="margin-left: 480px"
+                           href="{{ route('course.create') }}"> ثبت معلم جدید</a>
                     </div>
                 </div>
 

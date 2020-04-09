@@ -8,11 +8,11 @@
                     <div align="center" class="card-header" style="font-family: 'Courier New ';background: aqua"><h3>ثبت نام معلم ها</h3></div>
 
                     <div class="card-body">
-                        <form method="POST" action="{{ route('register') }}">
+                        <form method="POST" action="{{ route('teacher.store') }}">
                             @csrf
 
                             <div class="form-group row">
-                                <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('نام') }}</label>
+                                <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('نام معلم ') }}</label>
 
                                 <div class="col-md-6">
                                     <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>

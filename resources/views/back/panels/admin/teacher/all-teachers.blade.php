@@ -7,24 +7,32 @@
             @include('back.panels.admin.sideBar')
             <div class="col-md-8">
                 <div class="card">
-                    <div align="center" class="card-header"><h3 style="font-family: 'Courier New'">معلم ها</h3></div>
+                    <div align="center" class="card-header">
+                        <h3 style="font-family: 'Courier New'">معلم ها</h3>
+
+                        @include('layouts.alerts')
+                    </div>
 
                     <div class="card-body">
                         <table class="table table-dark table-striped" >
                             <thead align="center">
-                            @forelse($teachers as $teacher)
+
                                 <tr>
-                                    <th>تاریخ عضویت</th>
+                                    <td colspan="2"> --- </td>
+                                    <th>تاریخ ثبت نام</th>
                                     <th>ایمیل</th>
                                     <th>نام</th>
 
                                 </tr>
                             </thead>
+                            @forelse($teachers as $teacher)
                             <tbody align="center">
                             <tr>
+                                <td>ویرایش</td>
+                                <td>حذف</td>
                                 <td>{{ jDate($teacher->created_at) }}</td>
                                 <td>{{$teacher->email}}</td>
-                                <td><a href="{{ route('student.show',$teacherb->name) }}" class="btn btn-info">{{$teacher->name}}</a></td>
+                                <td><a href="{{ route('student.show',$teacher->name) }}" class="btn btn-info">{{$teacher->name}}</a></td>
                             </tr>
                             @empty
                                 <p align="center" class="alert alert-info" style="font-family: 'Courier New'">هیچ معلمی را ثبت نام نکرده اید</p>

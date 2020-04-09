@@ -7,26 +7,7 @@
             <div class="col-md-8">
                 <div class="card">
                     <div align="center" class="card-header"><h3 style="font-family: 'Courier New'">لیست کل دروس </h3>
-                        @if ( session('successUpdate'))
-                            <hr>
-                            <h4 align="center" class="alert alert-success" style="font-family: 'Courier New'">{{ session('successUpdate')}}</h4>
-                            <hr>
-                        @endif
-                        @if ( session('successUpdate'))
-                            <hr>
-                            <h4 align="center" class="alert alert-danger" style="font-family: 'Courier New'">{{ session('brokenUpdate')}}</h4>
-                            <hr>
-                        @endif
-                        @if ( session('successDelete'))
-                            <hr>
-                            <h4 align="center" class="alert alert-danger" style="font-family: 'Courier New'">{{ session('successDelete')}}</h4>
-                            <hr>
-                        @endif
-                        @if ( session('brokenDelete'))
-                            <hr>
-                            <h4 align="center" class="alert alert-danger" style="font-family: 'Courier New'">{{ session('brokenDelete')}}</h4>
-                            <hr>
-                        @endif
+                     @include('layouts.alerts')
                     </div>
 
                     <div class="card-body">

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Back;
+namespace App\Http\Controllers\Back\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CreateCourseRequest;
@@ -46,6 +46,10 @@ class CourseController extends Controller
 
     public function destroy(Course $course)
     {
-
+        $result=$course->delete();
+        if ($result) {
+            return redirect(route('course.all'))->with('successDelete','عملیات حذف موفقیت امیز بود');
+        }
+        return redirect(route('course.all'))->with('brokenDelete','عملیات حذف با شکست روبرو شد');
     }
 }

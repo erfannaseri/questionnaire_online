@@ -6,23 +6,23 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 /*********************** ADMIN ROUTES ******************************/
-Route::group(['prefix'=>'admin','middleware'=>'checkAdmin'] ,function (){
-   Route::get('/{user:name}','Back\AdminController@index')->name('admin.panel');
+Route::group(['prefix'=>'admin','middleware'=>'checkAdmin','namespace'=>'Back\Admin'] ,function (){
+   Route::get('/{user:name}','AdminController@index')->name('admin.panel');
    Route::group(['prefix'=>'questionnaire'],function (){
-       Route::get('/all','Back\QuestionnaireController@allQuestionnaire')->name('questionnaire.all');
-       Route::get('questionnaires/{questionnaire}','Back\QuestionnaireController@show')->name('questionnaire.show');
+       Route::get('/all','QuestionnaireController@allQuestionnaire')->name('questionnaire.all');
+       Route::get('questionnaires/{questionnaire}','QuestionnaireController@show')->name('questionnaire.show');
    });
     Route::group(['prefix'=>'student'],function (){
-        Route::get('/all','Back\StudentController@allStudent')->name('student.all');
-        Route::get('/{user:name}','Back\StudentController@show')->name('student.show');
+        Route::get('/all','StudentController@index')->name('student.all');
+        Route::get('/{user:name}','StudentController@show')->name('student.show');
     });
     Route::group(['prefix'=>'course'],function (){
-        Route::get('/all','Back\CourseController@index')->name('course.all');
-        Route::get('create','Back\CourseController@showFormCreateCourse')->name('course.create');
-        Route::post('','Back\CourseController@store')->name('course.store');
-        Route::get('/{course}/edit','Back\CourseController@showFormEditCourse')->name('course.edit');
-        Route::put('/{course}','Back\CourseController@update')->name('course.update');
-        Route::delete('/{course}','Back\CourseController@destroy')->name('course.destroy');
+        Route::get('/all','CourseController@index')->name('course.all');
+        Route::get('create','CourseController@showFormCreateCourse')->name('course.create');
+        Route::post('','CourseController@store')->name('course.store');
+        Route::get('/{course}/edit','CourseController@showFormEditCourse')->name('course.edit');
+        Route::put('/{course}','CourseController@update')->name('course.update');
+        Route::delete('/{course}','CourseController@destroy')->name('course.destroy');
     });
 });
 

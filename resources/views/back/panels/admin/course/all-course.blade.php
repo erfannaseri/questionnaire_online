@@ -17,6 +17,16 @@
                             <h4 align="center" class="alert alert-danger" style="font-family: 'Courier New'">{{ session('brokenUpdate')}}</h4>
                             <hr>
                         @endif
+                        @if ( session('successDelete'))
+                            <hr>
+                            <h4 align="center" class="alert alert-danger" style="font-family: 'Courier New'">{{ session('successDelete')}}</h4>
+                            <hr>
+                        @endif
+                        @if ( session('brokenDelete'))
+                            <hr>
+                            <h4 align="center" class="alert alert-danger" style="font-family: 'Courier New'">{{ session('brokenDelete')}}</h4>
+                            <hr>
+                        @endif
                     </div>
 
                     <div class="card-body">
@@ -34,7 +44,12 @@
                             <tbody align="center">
                             @forelse($courses as $course)
                             <tr>
-                                <td><a href="" class="btn btn-success btn-outline-secondary">حذف</a></td>
+                                <form action="{{ route('course.destroy',$course->id) }}" method="post">
+                                    @csrf
+                                    @method('DELETE')
+                                    <td><button type="submit" class="btn btn-dark btn-outline-danger">حذف </button></td>
+                                </form>
+
                                 <td><a href="{{ route('course.edit',$course->id) }}" class="btn btn-dark btn-outline-success">ویرایش</a></td>
 
                                 <td>{{$course->grade}}</td>

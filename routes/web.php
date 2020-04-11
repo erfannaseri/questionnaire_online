@@ -6,8 +6,8 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 /*********************** ADMIN ROUTES ******************************/
-Route::group(['prefix'=>'admin','middleware'=>'checkAdmin','namespace'=>'Back\Admin'] ,function (){
-   Route::get('/{user:name}','AdminController@index')->name('admin.panel');
+Route::group(['prefix'=>'admin/','middleware'=>'auth','namespace'=>'Back\Admin'] ,function (){
+   Route::get('/{user:name}','AdminController@index')->name('admin.panel')->middleware('checkAdmin');
    Route::group(['prefix'=>'questionnaire'],function (){
        Route::get('/all','QuestionnaireController@allQuestionnaire')->name('questionnaire.all');
        Route::get('questionnaires/{questionnaire}','QuestionnaireController@show')->name('questionnaire.show');

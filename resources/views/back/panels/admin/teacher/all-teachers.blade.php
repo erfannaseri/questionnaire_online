@@ -37,7 +37,7 @@
                                 </form>
                                 <td>{{ jDate($teacher->created_at) }}</td>
                                 <td>{{$teacher->email}}</td>
-                                <td><a href="{{ route('student.show',$teacher->name) }}" class="btn btn-info">{{$teacher->name}}</a></td>
+                                <td>{{$teacher->name}}</td>
                             </tr>
                             @empty
                                 <p align="center" class="alert alert-info" style="font-family: 'Courier New'">هیچ معلمی را ثبت نام نکرده اید</p>

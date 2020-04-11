@@ -27,6 +27,7 @@ class TeacherController extends Controller
         if ($request->role == 3) {
             $user=User::create([
                 'name'=>$request->name,
+                'username'=>$request->username,
                 'email'=>$request->email,
                 'role'=>$request->role,
                 'password'=>Hash::make($request->password)

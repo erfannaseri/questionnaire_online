@@ -23,15 +23,15 @@ class RedirectIfAuthenticated
 //            return redirect(RouteServiceProvider::HOME);
 
             if (Auth::user()->role == RoleTypes::ADMIN) {
-                return redirect(route('admin.panel'));
+                return redirect(route('admin.panel',Auth::user()->username));
             }
 
             if (Auth::user()->role == RoleTypes::STUDENT) {
-                return redirect(route('student.panel'));
+                return redirect(route('student.panel',Auth::user()->username));
             }
 
             if (Auth::user()->role == RoleTypes::TEACHER) {
-                return redirect(route('teacher.panel'));
+                return redirect(route('teacher.panel',Auth::user()->username));
             }
         }
 

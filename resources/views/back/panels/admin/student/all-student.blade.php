@@ -12,16 +12,23 @@
                     <div class="card-body">
                         <table class="table table-dark table-striped" >
                             <thead align="center">
-                            @forelse($students as $student)
+
                                 <tr>
+                                    <th> --- </th>
                                     <th>تاریخ عضویت</th>
                                     <th>ایمیل</th>
                                     <th>نام</th>
 
                                 </tr>
                             </thead>
+                            @forelse($students as $student)
                             <tbody align="center">
                             <tr>
+                                <form action="#" method="post">
+                                    @csrf
+                                    @method('DELETE')
+                                    <td><button type="submit" class="btn btn-secondary btn-outline-danger">حذف کاربر</button></td>
+                                </form>
                                 <td>{{ jDate($student->created_at) }}</td>
                                 <td>{{$student->email}}</td>
                                 <td><a href="{{ route('student.show',$student->name) }}" class="btn btn-info">{{$student->name}}</a></td>

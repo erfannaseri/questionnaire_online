@@ -16,14 +16,14 @@
                     <div class="card-body">
                         <table class="table table-dark table-striped" >
                             <thead align="center">
-
+                                @if( count($teachers) > 0)
                                 <tr>
                                     <td colspan="2"> --- </td>
                                     <th>تاریخ ثبت نام</th>
                                     <th>ایمیل</th>
                                     <th>نام</th>
-
                                 </tr>
+                                @endif
                             </thead>
                             @forelse($teachers as $teacher)
                             <tbody align="center">

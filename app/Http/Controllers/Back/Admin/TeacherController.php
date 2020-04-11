@@ -38,8 +38,7 @@ class TeacherController extends Controller
         return redirect(route('teacher.all'))->with('brokenAddTeacher','عملیات ثبت معلم با شکست روبرو شد');
     }
 
-    public function showFormEditTeacher(User $user)
-    {
+    public function showFormEditTeacher(User $user){
         $teacher=$user;
         return view('back.panels.admin.teacher.edit-teacher',compact('teacher'));
     }

@@ -4,7 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Support\Facades\Auth;
-
+use Illuminate\Support\Facades\Request;
 use App\Services\Roles\Enums\RoleTypes;
 
 class CheckAdmin
@@ -18,9 +18,9 @@ class CheckAdmin
      */
     public function handle($request, Closure $next)
     {
-        if (Auth::check() && Auth::user()->role == RoleTypes::ADMIN) {
+        if (Auth::check() && Auth::user()->role == RoleTypes::ADMIN && Auth::user()->username  == Request::segment(2))  {
             return $next($request);
         }
-        return redirect('/');
+        return  redirect(route('error-404'));
     }
 }

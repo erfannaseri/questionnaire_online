@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\User;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\CreateTeacherRequest;
+
 class TeacherController extends Controller
 {
     public function index()

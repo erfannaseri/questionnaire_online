@@ -5,6 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use App\Services\Roles\Enums\RoleTypes;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Request;
 
 class CheckTeacher
 {
@@ -17,9 +18,9 @@ class CheckTeacher
      */
     public function handle($request, Closure $next)
     {
-        if (Auth::check() && Auth::user()->role == RoleTypes::TEACHER) {
+        if (Auth::check() && Auth::user()->role == RoleTypes::TEACHER && Auth::user()->username  == Request::segment(2)) {
             return $next($request);
         }
-        return redirect('/');
+        return  redirect(route('error-404'));
     }
 }

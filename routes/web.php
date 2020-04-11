@@ -37,16 +37,19 @@ Route::group(['prefix'=>'admin','middleware'=>'checkAdmin','namespace'=>'Back\Ad
 });
 
 /*********************** STUDENT ROUTES ******************************/
-Route::group(['prefix'=>'student','middleware'=>'checkStudent'] ,function (){
-    Route::get('/{user:name}','Back\StudentController@index')->name('student.panel');
+Route::group(['prefix'=>'student','middleware'=>'checkStudent','namespace'=>'Back\Admin'] ,function (){
+    Route::get('/{user:username}','StudentController@index')->name('student.panel');
 });
 
 /*********************** TEACHER ROUTES ******************************/
-Route::group(['prefix'=>'teacher','middleware'=>'checkTeacher'] ,function (){
-    Route::get('/{user:name}','Back\TeacherController@index')->name('teacher.panel');
+Route::group(['prefix'=>'teacher','middleware'=>'checkTeacher','namespace'=>'Back\Admin'] ,function (){
+    Route::get('/{user:name}','TeacherController@index')->name('teacher.panel');
 });
+/*************************** OTHER ROUTE *****************************/
 
-
+Route::get('error-404',function (){
+    return view('errors.404');
+})->name('error-404');
 /*********************** FRONT ROUTES ********************************/
 Route::group(['namespace'=>'front'],function(){
     Route::get('/', function () {

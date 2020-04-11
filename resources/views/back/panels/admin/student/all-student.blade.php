@@ -24,7 +24,7 @@
                             @forelse($students as $student)
                             <tbody align="center">
                             <tr>
-                                <form action="#" method="post">
+                                <form action="{{ route('student.destroy',$student->username) }}" method="post">
                                     @csrf
                                     @method('DELETE')
                                     <td><button type="submit" class="btn btn-secondary btn-outline-danger">حذف کاربر</button></td>

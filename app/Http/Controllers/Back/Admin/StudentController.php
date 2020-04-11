@@ -21,4 +21,9 @@ class StudentController extends Controller
     {
 
     }
+
+    public function destroy(User $user)
+    {
+        return $user;
+    }
 }

@@ -20,6 +20,6 @@ class CheckTeacher
         if (Auth::check() && Auth::user()->role == RoleTypes::TEACHER) {
             return $next($request);
         }
-        return redirect('/login');
+        return  redirect(route('error-404'));
     }
 }

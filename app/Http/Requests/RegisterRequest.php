@@ -25,7 +25,7 @@ class RegisterRequest extends FormRequest
     {
         return [
             'name' => 'bail|required|alpha_spaces|min:4',
-            'username' => 'bail|required|string|min:6|unique:users',
+            'username' => 'bail|required|string|min:5|unique:users',
             'email' => 'bail|required|string|email|unique:users',
             'password' => 'bail|required|string|min:8|confirmed',
         ];

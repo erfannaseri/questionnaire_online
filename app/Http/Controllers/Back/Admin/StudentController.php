@@ -24,6 +24,8 @@ class StudentController extends Controller
 
     public function destroy(User $user)
     {
-        return $user;
+        $user->delete();
+
+        return back()->with('successUserDelete','دانش اموز موزد نظر حذف شد');
     }
 }

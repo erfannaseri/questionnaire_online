@@ -18,7 +18,7 @@ class CheckAdmin
      */
     public function handle($request, Closure $next)
     {
-        if (Auth::check() && Auth::user()->role == RoleTypes::ADMIN && Auth::user()->username  == Request::segment(2))  {
+        if (Auth::check() && Auth::user()->role == RoleTypes::ADMIN)  {
             return $next($request);
         }
         return  redirect(route('error-404'));

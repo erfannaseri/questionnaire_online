@@ -12,14 +12,16 @@
                     <div class="card-body">
                         <table class="table table-dark table-striped" >
                             <thead align="center">
-
+                            @if( count($students) > 0)
                                 <tr>
                                     <th> --- </th>
                                     <th>تاریخ عضویت</th>
                                     <th>ایمیل</th>
-                                    <th>نام</th>
+                                    <th>نام کاربری</th>
+                                    <th>پروفایل</th>
 
                                 </tr>
+                            @endif
                             </thead>
                             @forelse($students as $student)
                             <tbody align="center">
@@ -31,11 +33,16 @@
                                 </form>
                                 <td>{{ jDate($student->created_at) }}</td>
                                 <td>{{$student->email}}</td>
-                                <td><a href="{{ route('student.show',$student->name) }}" class="btn btn-info">{{$student->name}}</a></td>
+                                <td>{{$student->username}}</td>
+                                @if( !empty($student->photo))
+                                    <td>fdsadsaf</td>
+                                @else
+                                    <td><img src="/images/profile-pic.png" class="rounded-circle" style="width:50px; height:50px"></td>
+                                 @endif
                             </tr>
                             @empty
                                 <p align="center" class="alert alert-info">هیچ دانش آموزی وجود ندارد</p>
-                                <a class="btn btn-outline-primary btn-secondary btn-lg btn-block" href="{{url('/home')}}">برگشت</a>
+
                             @endforelse
                             </tbody>
                         </table>

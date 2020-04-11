@@ -15,6 +15,7 @@ Route::group(['prefix'=>'admin/','middleware'=>'auth','namespace'=>'Back\Admin']
     Route::group(['prefix'=>'student'],function (){
         Route::get('/all','StudentController@index')->name('student.all');
         Route::get('/{user:name}','StudentController@show')->name('student.show');
+        Route::delete('/{user:name}','StudentController@destroy')->name('student.destroy');
     });
 
     Route::group(['prefix'=>'teacher'],function (){

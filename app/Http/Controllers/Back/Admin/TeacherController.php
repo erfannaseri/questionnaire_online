@@ -14,6 +14,7 @@ class TeacherController extends Controller
 {
     public function index()
     {
+        return 'gsdgsdg';
         $teachers=User::where('role',3)->get();
 
         return view('back.panels.admin.teacher.all-teachers',compact('teachers'));

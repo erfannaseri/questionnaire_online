@@ -8,18 +8,11 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Request;
 class CheckStudent
 {
-    /**
-     * Handle an incoming request.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Closure  $next
-     * @return mixed
-     */
     public function handle($request, Closure $next)
     {
-        if (Auth::check() && Auth::user()->role == RoleTypes::STUDENT &&  Auth::user()->username  == Request::segment(2)) {
+        if (Auth::check() && Auth::user()->role == RoleTypes::STUDENT ) {
             return $next($request);
         }
-        return  redirect(route('error-404'));
+        return  redirect(route('login'));
     }
 }

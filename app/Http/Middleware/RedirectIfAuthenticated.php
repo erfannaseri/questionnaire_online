@@ -20,18 +20,19 @@ class RedirectIfAuthenticated
     public function handle($request, Closure $next, $guard = null)
     {
         if (Auth::guard($guard)->check()) {
-//            return redirect(RouteServiceProvider::HOME);
+
 
             if (Auth::user()->role == RoleTypes::ADMIN) {
-                return redirect(route('admin.panel',Auth::user()->username));
+                return redirect(route('admin.panel'));
             }
 
             if (Auth::user()->role == RoleTypes::STUDENT) {
-                return redirect(route('student.panel',Auth::user()->username));
+                return redirect(route('student.panel'));
             }
 
             if (Auth::user()->role == RoleTypes::TEACHER) {
-                return redirect(route('teacher.panel',Auth::user()->username));
+
+                return redirect(route('teacher.panel'));
             }
         }
 

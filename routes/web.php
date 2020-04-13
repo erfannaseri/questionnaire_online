@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 /*********************** ADMIN ROUTES ******************************/
 Route::group(['prefix'=>'admin','middleware'=>'checkAdmin','namespace'=>'Back\Admin'] ,function (){
-   Route::get('/home','AdminController@index')->name('admin.panel')->middleware('checkAdmin');
+   Route::get('/home','AdminController@index')->name('admin.panel');
    Route::group(['prefix'=>'questionnaire'],function (){
        Route::get('/all','QuestionnaireController@allQuestionnaire')->name('questionnaire.all');
        Route::get('questionnaires/{questionnaire}','QuestionnaireController@show')->name('questionnaire.show');
@@ -34,16 +34,16 @@ Route::group(['prefix'=>'admin','middleware'=>'checkAdmin','namespace'=>'Back\Ad
         Route::delete('/{course}','CourseController@destroy')->name('course.destroy');
     });
 });
+/*********************** TEACHER ROUTES ******************************/
+Route::group(['prefix'=>'teacher','middleware'=>'checkTeacher','namespace'=>'Back'] ,function (){
+    Route::get('/home','TeacherController@index')->name('teacher.panel');
+});
 
 /*********************** STUDENT ROUTES ******************************/
 Route::group(['prefix'=>'student','middleware'=>'checkStudent','namespace'=>'Back\Admin'] ,function (){
-    Route::get('/{user:username}','StudentController@index')->name('student.panel');
+    Route::get('/home','StudentController@index')->name('student.panel');
 });
 
-/*********************** TEACHER ROUTES ******************************/
-Route::group(['prefix'=>'teacher','middleware'=>'checkTeacher','namespace'=>'Back\Admin'] ,function (){
-    Route::get('/{user:name}','TeacherController@index')->name('teacher.panel');
-});
 /*************************** OTHER ROUTE *****************************/
 
 Route::get('error-404',function (){

@@ -9,7 +9,7 @@ use App\User;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\CreateTeacherRequest;
 use Illuminate\Support\Facades\Notification;
-
+use App\Notifications\SendRegisteredTeacher;
 class TeacherController extends Controller
 {
     public function index()
@@ -36,7 +36,7 @@ class TeacherController extends Controller
             ]);
             $user->role=3;
             $user->save();
-            notification::send(new SendRegisteredTeacher($user));
+            $user->notify(new SendRegisteredTeacher($user));
                 return redirect(route('teacher.all'))->with('successAddTeacher','معلم جدید با موفقیت اضافه شد ');
         }
         return redirect(route('teacher.all'))->with('brokenAddTeacher','عملیات ثبت معلم با شکست روبرو شد');

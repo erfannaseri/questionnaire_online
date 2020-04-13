@@ -26,7 +26,6 @@ class CreateTeacherRequest extends FormRequest
         return [
             'name'=>'bail|required|alpha_spaces|min:5',
             'email'=>'bail|required|email|unique:users',
-            'password'=>'bail|required|confirmed|min:8'
         ];
     }
 
@@ -39,9 +38,6 @@ class CreateTeacherRequest extends FormRequest
             'email.required'=>'لطفا ایمیل معلم را وارد نمایید',
             'email.email'=>'فرمت ایمیل وارد شده درست نمیباشد',
             'email.unique'=>'ایمیل قبلا ثبت شده است لطفا ایمیل دیگری را امتحان نمایید',
-            'password.required'=>'لطفا فیلد رمزعبور را وارد نمایید',
-            'password.confirmed'=>'رمزعبور ها باید منطبق باشند',
-            'password.min'=>'رمزعبور وارد شده بسیار کوتاه است دست کم باید 8 حرفی باشد',
         ];
     }
 }

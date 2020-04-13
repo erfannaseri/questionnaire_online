@@ -22,6 +22,7 @@
                                     <th>تاریخ ثبت نام</th>
                                     <th>ایمیل</th>
                                     <th>نام</th>
+                                    <th>پروفایل</th>
                                 </tr>
                                 @endif
                             </thead>
@@ -38,6 +39,11 @@
                                 <td>{{ jDate($teacher->created_at) }}</td>
                                 <td>{{$teacher->email}}</td>
                                 <td>{{$teacher->name}}</td>
+                                @if( !empty($teacher->photo))
+                                    <td>fdgds</td>
+                                @else
+                                    <td><img src="/images/profile-pic.png" class="rounded-circle" style="width:50px; height:50px"></td>
+                                @endif
                             </tr>
                             @empty
                                 <p align="center" class="alert alert-info" style="font-family: 'Courier New'">هیچ معلمی را ثبت نام نکرده اید</p>

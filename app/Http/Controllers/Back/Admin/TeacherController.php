@@ -3,10 +3,12 @@
 namespace App\Http\Controllers\Back\Admin;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Http\Request;
 use App\User;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\CreateTeacherRequest;
+use Illuminate\Support\Facades\Notification;
 
 class TeacherController extends Controller
 {
@@ -30,10 +32,11 @@ class TeacherController extends Controller
                 'username'=>$request->username,
                 'email'=>$request->email,
                 'role'=>$request->role,
-                'password'=>Hash::make($request->password)
+                'password'=>Hash::make(12345678)
             ]);
             $user->role=3;
             $user->save();
+            notification::send(new SendRegisteredTeacher($user));
                 return redirect(route('teacher.all'))->with('successAddTeacher','معلم جدید با موفقیت اضافه شد ');
         }
         return redirect(route('teacher.all'))->with('brokenAddTeacher','عملیات ثبت معلم با شکست روبرو شد');

@@ -9,7 +9,7 @@ use App\Http\Requests\LoginRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\User;
-use App\Services\Roles\Enums\RoleTypes;
+use App\Services\Enums\Roles\RoleTypes;
 class LoginController extends Controller
 {
     /*

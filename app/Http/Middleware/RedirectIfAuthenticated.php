@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use App\Providers\RouteServiceProvider;
 use Closure;
 use Illuminate\Support\Facades\Auth;
-use App\Services\Roles\Enums\RoleTypes;
+use App\Services\Enums\Roles\RoleTypes;
 
 class RedirectIfAuthenticated
 {

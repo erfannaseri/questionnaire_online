@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Request;
-use App\Services\Roles\Enums\RoleTypes;
+use App\Services\Enums\Roles\RoleTypes;
 
 class CheckAdmin
 {

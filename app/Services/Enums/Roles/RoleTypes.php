@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services\Roles\Enums;
+namespace App\Services\Enums\Roles;
 
 class RoleTypes {
     const ADMIN = 1;

@@ -43,7 +43,7 @@ class LoginController extends Controller
     }
 
 
-    public function login(LoginRequest $request)
+    public function login(Request $request)
     {
 
        $result=Auth::attempt(['email'=>$request->email,'password'=>$request->password]);

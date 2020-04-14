@@ -52,6 +52,7 @@
                             </tbody>
                         </table>
                     </div>
+                    <span style="margin-left: 300px">{{ $teachers->links() }}</span>
                     <div class=" card-footer">
                         <a class="btn btn-outline-primary btn-secondary " href="{{ route('admin.panel',Auth::user()->name) }}">برگشت</a>
                         <a class="btn btn-outline-primary btn-info "style="margin-left: 480px"

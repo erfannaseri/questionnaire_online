@@ -1,6 +1,7 @@
 <?php
 
 
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -40,7 +41,7 @@ Route::group(['prefix'=>'teacher','middleware'=>'checkTeacher','namespace'=>'Bac
 });
 
 /*********************** STUDENT ROUTES ******************************/
-Route::group(['prefix'=>'student','middleware'=>'checkStudent','namespace'=>'Back\Admin'] ,function (){
+Route::group(['prefix'=>'student','middleware'=>'checkStudent','namespace'=>'Back'] ,function (){
     Route::get('/home','StudentController@index')->name('student.panel');
 });
 

@@ -39,3 +39,4 @@ class CreateCourseRequest extends FormRequest
         ];
     }
 }
+

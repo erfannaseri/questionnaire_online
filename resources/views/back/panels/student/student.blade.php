@@ -4,11 +4,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-4" style="margin-right: -200px;margin-left: -200px">
-                <div class="btn-group-vertical">
-                    <a href="#" class="btn btn-info">لیست دروس </a>
-                    <a href="#" class="btn btn-secondary">معلمان</a>
-
-                </div>
+               @include('back.panels.student.sideBar')
             </div>
             <div class="col-md-8">
                 <div class="card">

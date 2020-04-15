@@ -43,13 +43,12 @@ Route::group(['prefix'=>'teacher','middleware'=>'checkTeacher','namespace'=>'Bac
 /*********************** STUDENT ROUTES ******************************/
 Route::group(['prefix'=>'student','middleware'=>'checkStudent','namespace'=>'Back'] ,function (){
     Route::get('/home','StudentController@index')->name('student.panel');
+    Route::get('profile','StudentController@profile')->name('student.profile');
+    Route::get('courses','StudentController@courses')->name('student.courses');
 });
 
 /*************************** OTHER ROUTE *****************************/
 
-Route::get('error-404',function (){
-    return view('errors.404');
-})->name('error-404');
 /*********************** FRONT ROUTES ********************************/
 Route::group(['namespace'=>'front'],function(){
     Route::get('/', function () {

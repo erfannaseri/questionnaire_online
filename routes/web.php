@@ -6,6 +6,11 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 Auth::routes();
+
+Route::get('login/{provider}','Back\SocialiteController@redirectToProvider')->name('login.provider');
+Route::get('login/{provider}/callback','Back\SocialiteController@handleProviderCallback');
+
+
 /*********************** ADMIN ROUTES ******************************/
 Route::group(['prefix'=>'admin','middleware'=>'checkAdmin','namespace'=>'Back\Admin'] ,function (){
    Route::get('/home','AdminController@index')->name('admin.panel');

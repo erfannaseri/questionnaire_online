@@ -16,6 +16,7 @@
         "hekmatinasser/verta": "^1.10",
         "laravel/framework": "^7.0",
         "laravel/helpers": "^1.2",
+        "laravel/socialite": "^4.3",
         "laravel/tinker": "^2.0",
         "laravel/ui": "^2.0"
     },
